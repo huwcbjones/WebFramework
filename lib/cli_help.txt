@@ -1,0 +1,12 @@
+ WebApp CLI Help:
+
+  - Type a command and press ENTER to execute it.
+  - Commands must be terminated by a semicolon (;)
+  - A # before a line denotes a debug log message (if enabled in the config)
+
+  Commands:
+  
+  help();          Shows this help text
+  exit();          Exits the CLI interface
+  logout();        Logs you out of the site CLI Interface
+  changeUser();    Prompts to change user

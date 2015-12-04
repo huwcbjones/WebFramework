@@ -1,0 +1,74 @@
+/* Custom Bootstrap Overrides */
+html, body, #googleMap, #googleMap .col-xs-6 { height: 100% }
+body {
+	padding-top: 70px;
+}
+.jumbotron {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+
+.footer{
+	vertical-align:middle;
+	text-align:center;
+	height:100%;
+	padding:5px;
+}
+
+/* Widescreen breakpoints */
+@media (min-width: 1600px) {
+	.container {
+		width: 1580px;
+	}
+}
+@media (min-width: 1920px) {
+	.container {
+		width: 1900px;
+	}
+}
+
+/* Carousel Overrides */
+.carousel-inner { text-align: center; }
+
+.carousel .item > img { display: inline-block; }
+
+.carousel-control{
+	color:#000000;
+}
+.carousel-control.left{
+	border-bottom-left-radius:6px;
+	border-top-left-radius:6px;
+}
+.carousel-control.right{
+	border-bottom-right-radius:6px;
+	border-top-right-radius:6px;
+}
+.carousel-caption {
+  right: 10%;
+  left: 10%;
+  border-radius:15px;
+}
+
+.dropdown-menu{
+	min-width:130px;
+}
+.dropdown-menu-admin{
+	min-width: 195px;
+}
+
+/* Fix Google Maps canvas
+ *
+ * Wrap your Google Maps embed in a `.google-map-canvas` to reset Bootstrap's
+ * global `box-sizing` changes. You may optionally need to reset the `max-width`
+ * on images in case you've applied that anywhere else. (That shouldn't be as
+ * necessary with Bootstrap 3 though as that behavior is relegated to the
+ * `.img-responsive` class.)
+ */
+
+.google-map-canvas,
+.google-map-canvas * { .box-sizing(content-box); }
+
+/* Optional responsive image override */
+img { max-width: none; }
+

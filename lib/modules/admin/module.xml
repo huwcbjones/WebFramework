@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1" method="install">
+  <core>
+    <name>Site Administration</name>
+    <namespace>Admin</namespace>
+    <version>1.0.1</version>
+    <creationDate>March 2014</creationDate>
+    
+    <description>Allows the administration of the site and its content.</description>
+    
+    <author>Huw Jones</author>
+    <authorEmail>huwcbjones@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>(C) 2014 Huw Jones</copyright>
+  </core>
+
+  <!-- Add all the pages here -->
+  <pages>
+    <!-- EXAMPLE PAGE -->
+    <!--
+    <page>
+      <id>0</id>                Unique page ID (for this module)
+      <title>Example</title>    Page Title
+      <desc></desc>             Page description (will be seen on search engines if anon group has access)
+      <cat2>*</cat2>            Catagory 2 (for URL. E.g: /MODULE/cat2)
+      <cat3></cat3>             Catagory 3 (for URL. E.g: /MODULE/cat2/cat3)
+      <js></js>                 Extra js files to load with the page (CSV)
+      <css></css>               Extra css files to load with the page (CSV)
+    </page>
+    -->
+  </pages>
+  
+  <!-- Backup, update, uninstall -->
+  <!-- Set these to blank to disable that feature, or the script
+       name to handle that operation.
+  -->
+  <backup></backup>
+  <update></update>
+  <uninstall></uninstall>
+  
+  <admininstrator>
+    <!-- Add all the admin pages here -->
+    <!-- EXAMPLE ADMIN PAGE -->
+    <!--
+    <admin>
+      <id>0</id>                Unique admin page ID (for this module)
+      <title>Example</title>    Page name
+      <desc></desc>             Page description
+      <cat>test</cat>           Page catagory (makes URL. E.g: /admin/MODULE/test)
+      <js></js>                 Extra js files to load with the page (CSV)
+      <css></css>               Extra css files to load with the page (CSV)
+    </admin>
+    -->
+    
+    <!-- Add all the admin menu items here -->
+    <!-- EXAMPLE ADMIN MENU ITEM -->
+    <!--
+    <menuitem>
+      <link>page</link> The page link for the URL (e.g: /admin/ex_mod/page). Correlates with admin->cat
+      <id>1</id>        The admin page ID. Correlates with admin->id
+    </menuitem>
+    -->
+    <admin>
+      <id>0</id>
+      <title>Admin</title>
+      <desc></desc>
+      <cat></cat>
+      <js></js>
+      <css></css>
+    </admin>
+  </admininstrator>
+</extension>

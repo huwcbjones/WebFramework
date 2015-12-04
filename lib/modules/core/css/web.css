@@ -1,0 +1,74 @@
+/* WebApp CSS */
+
+footer div {
+	padding-bottom:0px;
+}
+/* Logos */
+.logo img{
+	height:50px;
+	vertical-align:middle;
+	padding-left:5px;
+}
+#logos {
+	margin-right:-10px;
+}
+.footer-logo{
+	max-height: 50px;
+	max-width: 100px;
+}
+.social-logo{
+	padding: 5px;
+}
+
+/* Carousel */
+.carouselPane{
+	border-radius:6px;
+	margin-bottom:20px;
+  margin-left:-10px;
+  margin-right:-10px;
+}
+.mainCarousel{
+	padding:0px;
+}
+/* Jumbotron */
+.container-fluid .jumbotron {
+  border-radius: 6px;
+}
+.jumbotron .container-fluid {
+  max-width: 100%;
+}
+/* Content Pane */
+.pane{
+	padding-top:10px;
+	padding-bottom:10px;
+	background:#FFF;
+	border-radius:6px;
+	margin-bottom:20px;
+  margin-left:-10px;
+  margin-right:-10px;
+}
+
+/* Twitter Widget */
+#twitter-widget-0{
+	width:100% !important;
+}
+.stream{
+	overflow:scroll !important;
+	-webkit-overflow-scrolling: touch !important;
+}
+
+/* Miscellaneous */
+hr{
+	border-top: 1px solid #aaaaaa;
+}
+.times{
+	border-left-style:outset;
+	border-right-style:outset;
+	border-width:thin;
+}
+.ctrlPanel-icon{
+	border-style:none;
+	height:150px;
+}
+
+

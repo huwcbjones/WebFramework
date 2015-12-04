@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1" method="install">
+  <core>
+    <name>System</name>
+    <namespace>Core</namespace>
+    <version>1.0.7</version>
+    <creationDate>February 2014</creationDate>
+    
+    <description>
+Provides core site functionality.
+Changes:
+1.0.7:
+- Added IP blocking ability
+- Fixed system options table
+- Added GUMP for server side validation and sanitising
+
+1.0.6:
+- Fixed the event log
+- Added module admin dashboard
+1.0.5:
+- Sorted images out
+
+1.0.4:
+- Fixed css and script references
+
+1.0.3:
+- Added core js/css files into module
+
+1.0.2:
+- Added system config
+- Added system log
+- Added config
+- Added system info
+    </description>
+    
+    <author>Huw Jones</author>
+    <authorEmail>huwcbjones@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>(C) 2014 Huw Jones</copyright>
+  </core>
+  <!-- Add all the pages here -->
+  <pages>
+  <!-- EXAMPLE PAGE -->
+  <!--
+    <page>
+      <id>0</id>                Unique page ID (for this module)
+      <title>Example</title>    Page Title
+      <desc></desc>             Page description (will be seen on search engines)
+      <cat2>*</cat2>            Catagory 2 (for URL. E.g: /MODULE/cat2)
+      <cat3></cat3>             Catagory 3 (for URL. E.g: /MODULE/cat2/cat3)
+      <js></js>                 Extra js files to load with the page (CSV)
+      <css></css>               Extra css files to load with the page (CSV)
+    </page>
+  -->
+    <page>
+      <id>0</id>
+      <title>Home</title>
+      <desc>Welcome to the home of Biggleswade Swimming Club. Find out about competitions, news, training and more...</desc>
+      <cat2></cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>1</id>
+      <title>Site Under Maintenance</title>
+      <desc>We regret that the site is currently under maintenance.</desc>
+      <cat2></cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+  </pages>
+  
+  <!-- Backup, update, uninstall -->
+  <!-- Set these to blank to disable that feature, or the script
+       name to handle that operation.
+  -->
+  <backup></backup>
+  <update></update>
+  <uninstall></uninstall>
+  
+  <admininstrator>
+    <!-- Add all the admin pages here -->
+    <!-- EXAMPLE ADMIN PAGE -->
+    <!--
+    <admin>
+      <id>0</id>                Unique admin page ID (for this module)
+      <title>Example</title>    Page name
+      <desc></desc>             Page description
+      <cat>test</cat>           Page catagory (makes URL. E.g: /admin/MODULE/test)
+      <js></js>                 Extra js files to load with the page (CSV)
+      <css></css>               Extra css files to load with the page (CSV)
+    </admin>
+    -->
+    <admin>
+      <id>0</id>
+      <title>System</title>
+      <desc></desc>
+      <cat></cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>1</id>
+      <title>Event Log</title>
+      <desc></desc>
+      <cat>event_log</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>10</id>
+      <title>System Options</title>
+      <desc></desc>
+      <cat>option_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>11</id>
+      <title>New Option</title>
+      <desc></desc>
+      <cat>option_add</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>12</id>
+      <title>Edit Option</title>
+      <desc></desc>
+      <cat>option_edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>20</id>
+      <title>System Config</title>
+      <desc></desc>
+      <cat>config_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>21</id>
+      <title>Edit System Config</title>
+      <desc></desc>
+      <cat>config_edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>30</id>
+      <title>System Info</title>
+      <desc></desc>
+      <cat>system_info</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>40</id>
+      <title>IP Blocks</title>
+      <desc></desc>
+      <cat>ipblock_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>41</id>
+      <title>New IP Block</title>
+      <desc></desc>
+      <cat>ipblock_add</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>42</id>
+      <title>Edit IP Block</title>
+      <desc></desc>
+      <cat>ipblock_edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>50</id>
+      <title>Cron Jobs</title>
+      <desc></desc>
+      <cat>cron_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>52</id>
+      <title>Edit Cron Job</title>
+      <desc></desc>
+      <cat>cron_edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>53</id>
+      <title>Cron Job Log</title>
+      <desc></desc>
+      <cat>cron_log</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <!-- Add all the admin menu items here -->
+    <!-- EXAMPLE ADMIN MENU ITEM -->
+    <!--
+    <menuitem>
+      <link>page</link> The page link for the URL (e.g: /admin/ex_mod/page). Correlates with admin->cat
+      <id>1</id>        The admin page ID. Correlates with admin->id
+    </menuitem>
+    -->
+    <menuitem>
+      <link>event_log</link>
+      <id>1</id>
+    </menuitem>
+    <menuitem>
+      <link>ipblock_view</link>
+      <id>40</id>
+    </menuitem>
+    <menuitem>
+      <link>cron_view</link>
+      <id>50</id>
+    </menuitem>
+    <menuitem>
+      <link>option_view</link>
+      <id>10</id>
+    </menuitem>
+    <menuitem>
+      <link>config_view</link>
+      <id>20</id>
+    </menuitem>
+    <menuitem>
+      <link>system_info</link>
+      <id>30</id>
+    </menuitem>
+    
+  </admininstrator>
+  
+  <groups>
+    <!-- Add all the module groups here -->
+    <!-- EXAMPLE GROUP -->
+    <!--
+    <group>
+      <id>0</id>                        Unique group ID (for this module)
+      <name>Example</name>              Group name
+      <desc>An exmaple group</desc>     Group description
+      <pages>0,1</pages>                Page IDs, this group can access (unique to this module)
+      <admin>1,2</admin>                Admin Page IDs, this group can access (unique to this module)
+    </group>
+    -->
+    <group>
+      <id>0</id>
+      <name>View Event Log</name>
+      <desc>Can view the event log</desc>
+      <pages></pages>
+      <admin>0,1</admin>
+    </group>
+    <group>
+      <id>10</id>
+      <name>View System Options</name>
+      <desc>Can view the system options</desc>
+      <pages></pages>
+      <admin>0,10</admin>
+    </group>
+	<group>
+      <id>11</id>
+      <name>Add System Options</name>
+      <desc>Can add system options</desc>
+      <pages></pages>
+      <admin>11</admin>
+    </group>
+	<group>
+      <id>12</id>
+      <name>Edit System Options</name>
+      <desc>Can edit system options</desc>
+      <pages></pages>
+      <admin>12</admin>
+    </group>
+	<group>
+      <id>20</id>
+      <name>View System Config</name>
+      <desc>Can view system config</desc>
+      <pages></pages>
+      <admin>0,20</admin>
+    </group>
+	<group>
+      <id>22</id>
+      <name>Edit System Config</name>
+      <desc>Can edit system config</desc>
+      <pages></pages>
+      <admin>22</admin>
+    </group>
+	<group>
+      <id>30</id>
+      <name>View System Info</name>
+      <desc>Can view system info</desc>
+      <pages></pages>
+      <admin>30</admin>
+    </group>
+    <group>
+      <id>40</id>
+      <name>View Blocked IPs</name>
+      <desc>Can view blocked IPs</desc>
+      <pages></pages>
+      <admin>0,40</admin>
+    </group>
+	<group>
+      <id>41</id>
+      <name>Block IPs</name>
+      <desc>Can block IPs</desc>
+      <pages></pages>
+      <admin>41</admin>
+    </group>
+	<group>
+      <id>42</id>
+      <name>Edit IP blocks</name>
+      <desc>Can edit IP blocks</desc>
+      <pages></pages>
+      <admin>42</admin>
+    </group>
+    <group>
+      <id>43</id>
+      <name>Unblock IPs</name>
+      <desc>Can unblock IPs</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+    <group>
+      <id>50</id>
+      <name>View Cron Jobs</name>
+      <desc>Can view Cron Jobs</desc>
+      <pages></pages>
+      <admin>0,50</admin>
+    </group>
+    <group>
+      <id>52</id>
+      <name>Edit Cron Jobs</name>
+      <desc>Can edit Cron Jobs</desc>
+      <pages></pages>
+      <admin>52</admin>
+    </group>
+    <group>
+      <id>53</id>
+      <name>Delete Cron Jobs</name>
+      <desc>Can delete Cron Jobs</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+    <group>
+      <id>54</id>
+      <name>Run Cron Jobs</name>
+      <desc>Can run Cron Jobs</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+    <group>
+      <id>55</id>
+      <name>View Cron Log</name>
+      <desc>Can view the Cron Log</desc>
+      <pages></pages>
+      <admin>53</admin>
+    </group>
+  </groups>
+  
+  <!-- Add all the cron jobs here -->
+  <!-- EXAMPLE CRON JOB -->
+  <!--
+  <cron>
+    <mins>*</mins>                         Minutes past the hour to run this job, * for every minute
+    <hours>*</hours>                       Hour of the day to run this job, * for every hour
+    <days>*</days>                         Day of the month to run this job, * for every day
+    <month>*</month>                       Month of the year to run this job, * for every month
+    <dow>*</dow>                           Day of week to run this job, * for every day
+    <action>cleanTrash</action>            Function in cron.php ro run
+    <description>Example job</description> Description of job
+  </cron>
+  -->
+  <cron>
+    <mins>0</mins>
+    <hours>*</hours>
+    <days>*</days>
+    <month>*</month>
+    <dow>*</dow>
+    <action>removeBans</action>
+    <description>Removes expired bans from the database</description>
+  </cron>
+  <cron>
+    <mins>*</mins>
+    <hours>*</hours>
+    <days>*</days>
+    <month>*</month>
+    <dow>*</dow>
+    <action>protectIdle</action>
+    <description>Protects idle accounts by forcing them to enter their password after a timeout period</description>
+  </cron>
+  <cron>
+    <mins>*</mins>
+    <hours>0</hours>
+    <days>*</days>
+    <month>*</month>
+    <dow>*</dow>
+    <action>cleanseTemp</action>
+    <description>Cleans out the temp directory</description>
+  </cron>
+</extension>
