@@ -2,3 +2,4 @@
 *.woff
 *.eot
 *.svg
+**/.idea/
