@@ -3,3 +3,5 @@
 *.eot
 *.svg
 **/.idea/
+**/_notes/
+**/.svn/
