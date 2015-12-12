@@ -7,7 +7,6 @@
  *
  * @category   Plugins.Bootstrap.Form.Core
  * @package    form.php
- * @site       www.biggleswadesc.org
  * @author     Huw Jones <huwcbjones@gmail.com>
  * @copyright  2014 Huw Jones
  */
@@ -35,7 +34,6 @@ class Form extends BasePlugin
 	private $_target = '';
 
 	private $tabIndex = 1;
-	private $_indent = '';
 	private $_built = false;
 
 	private $_label_col = 3;

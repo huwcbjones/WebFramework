@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1" method="install">
+  <core>
+    <name>Module Manager</name>
+    <namespace>Modules</namespace>
+    <version>1.0.1</version>
+    <creationDate>March 2014</creationDate>
+    
+    <description>Provides the ability to install, update, backup and uninstall modules from the site.</description>
+    
+    <author>Huw Jones</author>
+    <authorEmail>huwcbjones@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>(C) 2014 Huw Jones</copyright>
+  </core>
+  <!-- Add all the pages here -->
+  <pages>
+  <!-- EXAMPLE PAGE -->
+  <!--
+    <page>
+      <id>0</id>              Unique page ID (for this module)
+      <title>Example</title>  Page Title
+      <desc></desc>           Page description (will be seen on search engines)
+      <cat2>*</cat2>          Catagory 2 (for URL. E.g: /MODULE/cat2)
+      <cat3></cat3>           Catagory 3 (for URL. E.g: /MODULE/cat2/cat3)
+      <js></js>               Extra js files to load with the page (CSV)
+      <css></css>             Extra css files to load with the page (CSV)
+    </page>
+  -->
+  </pages>
+  
+  <!-- Backup, update, uninstall -->
+  <!-- Set these to blank to disable that feature, or the script
+       name to handle that operation.
+  -->
+  <backup>backup.php</backup>
+  <update>update.php</update>
+  <uninstall></uninstall>
+  
+  <admininstrator>
+    <!-- Add all the admin pages here -->
+    <!-- EXAMPLE ADMIN PAGE -->
+    <!--
+    <admin>
+      <id>0</id>                Unique admin page ID (for this module)
+      <title>Example</title>    Page name
+      <desc></desc>             Page description
+      <cat>test</cat>           Page catagory (makes URL. E.g: /admin/MODULE/test)
+      <js></js>                 Extra js files to load with the page (CSV)
+      <css></css>               Extra css files to load with the page (CSV)
+    </admin>
+    -->
+    <admin>
+      <id>0</id>
+      <title>Module Manager</title>
+      <desc></desc>
+      <cat></cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>1</id>
+      <title>Install Module</title>
+      <desc></desc>
+      <cat>install</cat>
+      <js>modules/process_step.js</js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>2</id>
+      <title>Uninstall Module</title>
+      <desc></desc>
+      <cat>uninstall</cat>
+      <js>modules/process_step.js</js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>3</id>
+      <title>Backup Module</title>
+      <desc></desc>
+      <cat>backup</cat>
+      <js>modules/process_step.js</js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>4</id>
+      <title>Module Details</title>
+      <desc></desc>
+      <cat>details</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>5</id>
+      <title>Update Module</title>
+      <desc></desc>
+      <cat>update</cat>
+      <js>modules/process_step.js</js>
+      <css></css>
+    </admin>
+    <!-- Add all the admin menu items here -->
+    <!-- EXAMPLE ADMIN MENU ITEM -->
+    <!--
+    <menuitem>
+      <link>page</link> The page link for the URL (e.g: /admin/ex_mod/page). Correlates with admin->cat
+      <id>1</id>        The admin page ID. Correlates with admin->id
+    </menuitem>
+    -->
+  <menuitem>
+    <link>install</link>
+    <id>1</id>
+  </menuitem>
+  <menuitem>
+    <link>backup</link>
+    <id>3</id>
+  </menuitem>
+  <menuitem>
+    <link>uninstall</link>
+    <id>2</id>
+  </menuitem>
+  </admininstrator>
+  
+  <groups>
+    <!-- Add all the module groups here -->
+    <!-- EXAMPLE GROUP -->
+    <!--
+    <group>
+      <id>0</id>                        Unique group ID (for this module)
+      <name>Example</name>              Group name
+      <desc>An exmaple group</desc>     Group description
+      <pages>0,1</pages>                Page IDs, this group can access (unique to this module)
+      <admin>1,2</admin>                Admin Page IDs, this group can access (unique to this module)
+    </group>
+    -->
+    <group>
+      <id>0</id>
+      <name>Modules</name>
+      <desc>Manages modules</desc>
+      <pages></pages>
+      <admin>0,1,2,3,4,5</admin>
+    </group>
+  </groups>
+</extension>

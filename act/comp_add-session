@@ -1,0 +1,36 @@
+<?php
+if(file_exists($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php")){include($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php");}
+defined("ERRORS")? ini_set("display_errors",ERRORS):ini_set("display_errors",0);
+error_reporting(E_ALL);
+require($_SERVER['DOCUMENT_ROOT']."/lib/functions.php");
+require($_SERVER['DOCUMENT_ROOT']."/lib/meet.php");
+main(); // Prepares environment
+$id = $_POST['ID'];
+$sessions = $_POST['s'];
+$meet = new Competition($mySQL);
+$comp_add = $meet->add_Comp_sessions($id,$sessions);
+if(is_array($comp_add)){
+	if($_POST['saveOpt']=='cont'){
+		header("Location: /admin/competitions/comp_add-events?msg=comp_add_sessions-OK&m=".$id);exit();
+	}else{
+		header("Location: /admin/competitions/comp_view?msg=comp_add_sessions-OK");exit();
+	}
+}else{
+	switch($comp_add){
+		case 1:
+			//header("Location: /admin/competitions/comp_add-sessions?msg=comp_add_sessions-F1&m=".$id);exit();
+			break;
+		case 2:
+			header("Location: /admin/competitions/comp_add-sessions?msg=unspec&m=".$id);exit();
+			break;
+		case 3:
+			header("Location: /admin/competitions/comp_add-sessions?msg=comp_add_sessions-F2&m=".$id);exit();
+			break;
+		case 4:
+			header("Location: /admin/competitions/comp_view?msg=privilege-F");exit();
+			break;
+		default:
+			header("Location: /admin/competitions/comp_add-sessions?msg=unspec&m=".$id);exit();
+	}
+}
+?>

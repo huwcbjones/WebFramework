@@ -1,0 +1,30 @@
+<?php
+if(file_exists($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php")){include($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php");}
+defined("ERRORS")? ini_set("display_errors",ERRORS):ini_set("display_errors",0);
+error_reporting(E_ALL);
+require($_SERVER['DOCUMENT_ROOT']."/lib/functions.php");
+require($_SERVER['DOCUMENT_ROOT']."/lib/event.php");
+main(); // Prepares environment
+$ID = $_POST['event'];
+$event = new Event($mySQL);
+$event_del = $event->event_del($ID);
+switch($event_del){
+	case 0:
+		header("Location: /admin/news/event_view?msg=event_del-OK");exit();
+		break;
+	case 1:
+		header("Location: /admin/news/event_del?msg=event_del-F1");exit();
+		break;
+	case 2:
+		header("Location: /admin/news/event_del?msg=unspec");exit();
+		break;
+	case 3:
+		header("Location: /admin/news/event_del?msg=event_del-F2");exit();
+		break;
+	case 4:
+		header("Location: /admin/news/event_view?msg=privilege-F");exit();
+		break;
+	default:
+		header("Location: /admin/news/event_del?msg=unspec");exit();
+}
+?>

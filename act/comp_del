@@ -1,0 +1,36 @@
+<?php
+if(file_exists($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php")){include($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php");}
+defined("ERRORS")? ini_set("display_errors",ERRORS):ini_set("display_errors",0);
+error_reporting(E_ALL);
+require($_SERVER['DOCUMENT_ROOT']."/lib/functions.php");
+require($_SERVER['DOCUMENT_ROOT']."/lib/meet.php");
+main(); // Prepares environment
+$ID = $_POST['comp'];
+$meet = new Competition($mySQL);
+$comp_del = $meet->del_comp($ID);
+switch($comp_del){
+	case 0:
+		header("Location: /admin/competitions/comp_view?msg=comp_del-OK");exit();
+		break;
+	case 1:
+		header("Location: /admin/competitions/comp_del?msg=comp_del-F1");exit();
+		break;
+	case 2:
+		header("Location: /admin/competitions/comp_del?msg=comp_del-F2");exit();
+		break;
+	case 3:
+		header("Location: /admin/competitions/comp_del?msg=comp_del-F3");exit();
+		break;
+	case 4:
+		header("Location: /admin/competitions/comp_del?msg=unspec");exit();
+		break;
+	case 5:
+		header("Location: /admin/competitions/comp_del?msg=comp_del-F4");exit();
+		break;
+	case 6:
+		header("Location: /admin/competitions/article_view?msg=privilege-F");exit();
+		break;
+	default:
+		header("Location: /admin/competitions/comp_del?msg=unspec");exit();
+}
+?>

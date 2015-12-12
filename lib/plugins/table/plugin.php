@@ -7,7 +7,6 @@
  *
  * @category   Plugins.Bootstrap.Table
  * @package    table.php
- * @site       www.biggleswadesc.org
  * @author     Huw Jones <huwcbjones@gmail.com>
  * @copyright  2014 Huw Jones
  */
@@ -40,7 +39,6 @@ class Table extends BasePlugin
 	private $_tableID = 'table0';
 	private $_tableClasses = array('table');
 
-	private $_indent = '';
 	private $_built = false;
 
 	/**
@@ -71,6 +69,17 @@ class Table extends BasePlugin
 		$this->parent->parent->debug($this::name_space . ': Change table ID to "' . $id .
 			'"');
 		$this->_tableID = $id;
+		return $this;
+	}
+	/**
+	 * Table::setIndent()
+	 *
+	 * @param mixed $indent
+	 * @return
+	 */
+	function setIndent($indent)
+	{
+		$this->_setIndent($indent);
 		return $this;
 	}
 	/**

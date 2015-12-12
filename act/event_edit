@@ -1,0 +1,54 @@
+<?php
+if(file_exists($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php")){include($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php");}
+defined("ERRORS")? ini_set("display_errors",ERRORS):ini_set("display_errors",0);
+error_reporting(E_ALL);
+require($_SERVER['DOCUMENT_ROOT']."/lib/functions.php");
+require($_SERVER['DOCUMENT_ROOT']."/lib/modules/event.php");
+main(); // Prepares environment
+
+foreach(array('id', 'title', 'enable', 'start_d', 'start_t', 'finish_d', 'finish_t', 'allday', 'loc_s', 'loc_t', 'details', 'link') as $var){
+	if(!array_key_exists($var, $_POST)) $_POST[$var] = '';
+}
+$validate = new FormValidate();
+
+$id			= $validate->validate('num',	$_POST['id']);
+$title		= $validate->validate('ascii',	$_POST['title'],	true);
+$enable		= $validate->validate('bool',	$_POST['enable'],	true);
+$starts		= strtotime(trim($_POST['start_d']).' '.trim($_POST['start_t']));
+$ends		= strtotime(trim($_POST['finish_d']).' '.trim($_POST['finish_t']));
+$allDay		= $validate->validate('bool',	$_POST['allday']);
+$location	= $validate->validate('ascii',	$_POST['loc_t'],	true);
+$notes		= $validate->validate('ascii',	$_POST['details'],	true);
+$link		= $validate->validate('url',	$_POST['link'], true);
+
+$event = new Event($mySQL);
+$alert = new Alert(false);
+$edit = $event->event_edit($id['i'],$title['i'],$enable['i'],$starts,$ends,$notes['i'],$location['i'],$link['i'],$allDay['i']);
+switch($edit){
+	case 0:
+		$msg = 'event_edit-OK';
+		$args['msg'] = $alert->getAlert($msg);
+		$args['url'] = 'event_view?msg='.$msg;
+		$args['status'] = true;
+		break;
+	case 1:
+		$msg = 'event_edit-F1';
+		$args['msg'] = $alert->getAlert($msg);
+		$args['url'] = 'event_view?msg='.$msg;
+		$args['status'] = true;
+		break;
+	case 3:
+		$msg = 'privilege-F';
+		$args['msg'] = $alert->getAlert($msg);
+		$args['url'] = 'event_view?msg='.$msg;
+		$args['status'] = false;
+		break;
+	default:
+		$msg = 'unspec';
+		$args['msg'] = $alert->getAlert($msg);
+		$args['url'] = 'event_edit?msg='.$msg.'&e='.$id['i'];
+		$args['status'] = false;
+}
+header('Content-Type: application/json; charset=UTF-8');
+print(json_encode($args, JSON_HEX_QUOT | JSON_HEX_TAG));
+?>

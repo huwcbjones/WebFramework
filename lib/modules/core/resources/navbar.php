@@ -80,7 +80,7 @@ class NavBar extends Base
 	}
 	
 	private function _fetchChildItems($parents){
-		$item_query = $this->mySQL_r->prepare("SELECT `MID`, `PID`, `divider`, `title`, `cat1`, `cat2`, `cat3` FROM `core_menu` LEFT JOIN `core_pages` ON `PID`=`ID` WHERE `parent`=? ORDER BY `MID` ASC");
+		$item_query = $this->mySQL_r->prepare("SELECT `MID`, `PID`, `divider`, `title`, `cat1`, `cat2`, `cat3` FROM `core_menu` LEFT JOIN `core_pages` ON `PID`=`ID` WHERE `parent`=? ORDER BY `position` ASC");
 		$item_query->bind_result($ID, $PID, $div, $title, $cat1, $cat2, $cat3); 
 		$user = $this->parent->parent->user;
 		foreach($parents as $P_ID=>$parentItem){

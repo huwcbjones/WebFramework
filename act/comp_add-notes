@@ -1,0 +1,39 @@
+<?php
+if(file_exists($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php")){include($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php");}
+defined("ERRORS")? ini_set("display_errors",ERRORS):ini_set("display_errors",0);
+error_reporting(E_ALL);
+require($_SERVER['DOCUMENT_ROOT']."/lib/functions.php");
+require($_SERVER['DOCUMENT_ROOT']."/lib/meet.php");
+main(); // Prepares environment
+$id = $_POST['ID'];
+isset($_POST['n_e']) ? $entry = $_POST['n_e']:$entry='';
+isset($_POST['n_c']) ? $coaches = $_POST['n_c']:$coaches='';
+isset($_POST['n_s']) ? $swimmers = $_POST['n_s']:$swimmers='';
+isset($_POST['n_p']) ? $parents = $_POST['n_p']:$parents='';
+$meet = new Competition($mySQL);
+$comp_add = $meet->add_Comp_notes($id,$entry,$coaches,$swimmers,$parents);
+if(is_array($comp_add)){
+	if($_POST['saveOpt']=='cont'){
+		header("Location: /admin/competitions/comp_add-docs?msg=comp_add_notes-OK&m=".$id);exit();
+	}else{
+		header("Location: /admin/competitions/comp_view?msg=comp_add-OK");exit();
+	}
+}else{
+	switch($comp_add){
+		case 1:
+			header("Location: /admin/competitions/comp_add-notes?msg=comp_add_notes-F1&m=".$id);exit();
+			break;
+		case 2:
+			header("Location: /admin/competitions/comp_add-notes?msg=unspec&m=".$id);exit();
+			break;
+		case 3:
+			header("Location: /admin/competitions/comp_add-notes?msg=comp_add_notes-F2&m=".$id);exit();
+			break;
+		case 4:
+			header("Location: /admin/competitions/comp_view?msg=privilege-F");exit();
+			break;
+		default:
+			header("Location: /admin/competitions/comp_add-notes?msg=unspec&m=".$id);exit();
+	}
+}
+?>

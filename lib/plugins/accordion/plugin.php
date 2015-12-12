@@ -6,7 +6,6 @@
  *
  * @category   Plugins.Bootstrap.Accordion
  * @package    accordion.php
- * @site       www.biggleswadesc.org
  * @author     Huw Jones <huwcbjones@gmail.com>
  * @copyright  2014 Huw Jones
  */

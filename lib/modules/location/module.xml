@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1" method="install">
+  <core>
+    <name>Locations</name>
+    <namespace>Location</namespace>
+    <!-- The following elements are optional and free of formatting constraints -->
+    <creationDate>March 2014</creationDate>
+    <author>Huw Jones</author>
+    <authorEmail>huwcbjones@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>(C) 2014 Huw Jones</copyright>
+    <!--  The version string is recorded in the core_modules table -->
+    <version>1.0.1</version>
+    <!-- The description is optional and defaults to blank -->
+    <description>Create, manage locations for use with other modules</description>
+  </core>
+  <!-- Add all the pages here -->
+  <pages>
+    <page>
+      <id>1</id>
+      <title>Location</title>
+      <desc></desc>
+      <cat2>*</cat2>
+      <cat3></cat3>
+      <js>https://maps.googleapis.com/maps/api/js?key=AIzaSyAvWeQ1H1fha0T0RtykY7IJ9s_9eUuucE8&amp;sensor=true</js>
+      <css></css>
+    </page>
+  </pages>
+  
+  <backup>backup.php</backup>
+  <uninstall></uninstall>
+  
+  <admininstrator>
+    <!-- Add all the admin pages here -->
+    <admin>
+      <id>0</id>
+      <title>Locations</title>
+      <desc></desc>
+      <cat></cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>1</id>
+      <title>New Location</title>
+      <desc></desc>
+      <cat>add</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>2</id>
+      <title>Edit Location</title>
+      <desc></desc>
+      <cat>edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    
+    <!-- Add all the admin menu items here -->  
+    <menuitem>
+      <link>add</link>
+      <id>1</id>
+    </menuitem>
+  </admininstrator>
+  
+  <groups>
+    <!-- Add all the module groups here -->
+    <!-- EXAMPLE GROUP -->
+    <!--
+    <group>
+      <id>0</id>                        Unique group ID (for this module)
+      <name>Example</name>              Group name
+      <desc>An exmaple group</desc>     Group description
+      <pages>0,1</pages>                Page IDs, this group can access (unique to this module)
+      <admin>1,2</admin>                Admin Page IDs, this group can access (unique to this module)
+    </group>
+    -->
+    <group>
+      <id>0</id>
+      <name>View Locations</name>
+      <desc>Can access locations module and view locations</desc>
+      <pages></pages>
+      <admin>0</admin>
+    </group>
+    <group>
+      <id>1</id>
+      <name>Add Location</name>
+      <desc>Can add locations</desc>
+      <pages></pages>
+      <admin>1</admin>
+    </group>
+    <group>
+      <id>2</id>
+      <name>Edit Location</name>
+      <desc>Can edit locations</desc>
+      <pages></pages>
+      <admin>2</admin>
+    </group>
+    <group>
+      <id>3</id>
+      <name>Delete Location</name>
+      <desc>Can delete locations</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+  </groups>
+</extension>

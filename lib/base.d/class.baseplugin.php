@@ -18,7 +18,7 @@ class BasePlugin extends Base
 	const		name_space		= 'WebApp.BasePlugin';
 	const		version			= '1.0.0';
 	
-	private		$_indent = '';
+	protected		$_indent = '';
 	
 	protected function _setIndent($indent){
 		if(!intval($indent)){

@@ -32,7 +32,7 @@ $form
 	->addTextField(
 		'Signature',
 		'server_signature',
-		GUMP::xss_clean(array(Server::get('Server_Signature')))[0],
+		array_pop(GUMP::xss_clean(array(Server::get('Server_Signature')))),
 		array('t'=>''),
 		array('ro'=>true)
 	)

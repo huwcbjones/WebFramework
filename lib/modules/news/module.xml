@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1" method="install">
+  <core>
+    <name>News &amp; Events</name>
+    <namespace>News</namespace>
+    <!-- The following elements are optional and free of formatting constraints -->
+    <creationDate>August 2014</creationDate>
+    <author>Huw Jones</author>
+    <authorEmail>huwcbjones@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>(C) 2014 Huw Jones</copyright>
+    <!--  The version string is recorded in the core_modules table -->
+    <version>1.0.1</version>
+    <!-- The description is optional and defaults to blank -->
+    <description>Create and edit news articles, as well as events</description>
+  </core>
+  <!-- Add all the pages here -->
+  <pages>
+    <page>
+      <id>0</id>
+      <title>News</title>
+      <desc></desc>
+      <cat2></cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>1</id>
+      <title>Article</title>
+      <desc></desc>
+      <cat2>article</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>10</id>
+      <title>Events</title>
+      <desc></desc>
+      <cat2></cat2>
+      <cat3></cat3>
+      <js>news/fullcalendar.js</js>
+      <css>news/fullcalendar.css,news/fullcalendar.print.css</css>
+    </page>
+    <page>
+      <id>11</id>
+      <title>Event</title>
+      <desc></desc>
+      <cat2>event</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>20</id>
+      <title>Newsletters</title>
+      <desc></desc>
+      <cat2>newsletters</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+  </pages>
+  
+  <backup>backup.php</backup>
+  <uninstall>uninstall.php</uninstall>
+  
+  <admininstrator>
+    <!-- Add all the admin pages here -->
+    <admin>
+      <id>0</id>
+      <title>News &amp; Events</title>
+      <desc></desc>
+      <cat></cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>1</id>
+      <title>View Articles</title>
+      <desc></desc>
+      <cat>article_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>2</id>
+      <title>New Article</title>
+      <desc></desc>
+      <cat>article_add</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>3</id>
+      <title>Edit Article</title>
+      <desc></desc>
+      <cat>article_edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>4</id>
+      <title>Preview Article</title>
+      <desc></desc>
+      <cat>article_preview</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>11</id>
+      <title>View Events</title>
+      <desc></desc>
+      <cat>event_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>12</id>
+      <title>New Event</title>
+      <desc></desc>
+      <cat>event_add</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>13</id>
+      <title>Edit Event</title>
+      <desc></desc>
+      <cat>event_edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>14</id>
+      <title>Preview Event</title>
+      <desc></desc>
+      <cat>event_preview</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>21</id>
+      <title>View Newsletters</title>
+      <desc></desc>
+      <cat>newsl_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>22</id>
+      <title>New Newsletter</title>
+      <desc></desc>
+      <cat>newsl_add</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    
+    <!-- Add all the admin menu items here -->  
+    <menuitem>
+      <link>article_view</link>
+      <id>1</id>
+    </menuitem>
+    <menuitem>
+      <link>article_add</link>
+      <id>2</id>
+    </menuitem>
+    <menuitem>
+      <link>event_view</link>
+      <id>11</id>
+    </menuitem>
+    <menuitem>
+      <link>event_add</link>
+      <id>12</id>
+    </menuitem>
+    <menuitem>
+      <link>newsl_view</link>
+      <id>21</id>
+    </menuitem>
+    <menuitem>
+      <link>newsl_add</link>
+      <id>22</id>
+    </menuitem>
+  </admininstrator>
+  
+  <groups>
+    <!-- Add all the module groups here -->
+    <!-- EXAMPLE GROUP -->
+    <!--
+    <group>
+      <id>0</id>                        Unique group ID (for this module)
+      <name>Example</name>              Group name
+      <desc>An exmaple group</desc>     Group description
+      <pages>0,1</pages>                Page IDs, this group can access (unique to this module)
+      <admin>1,2</admin>                Admin Page IDs, this group can access (unique to this module)
+    </group>
+    -->
+    <group>
+      <id>0</id>
+      <name>View Articles</name>
+      <desc>Can access News Module and view articles</desc>
+      <pages></pages>
+      <admin>0,1,4</admin>
+    </group>
+    <group>
+      <id>1</id>
+      <name>Add Articles</name>
+      <desc>Can add articles</desc>
+      <pages></pages>
+      <admin>2,4</admin>
+    </group>
+    <group>
+      <id>2</id>
+      <name>Edit Articles</name>
+      <desc>Can edit articles</desc>
+      <pages></pages>
+      <admin>3,4</admin>
+    </group>
+    <group>
+      <id>3</id>
+      <name>Delete Articles</name>
+      <desc>Can delete articles</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+    <group>
+      <id>10</id>
+      <name>View Events</name>
+      <desc>Can access News Module and view events</desc>
+      <pages></pages>
+      <admin>0,11,14</admin>
+    </group>
+    <group>
+      <id>11</id>
+      <name>Add Events</name>
+      <desc>Can add events</desc>
+      <pages></pages>
+      <admin>12,14</admin>
+    </group>
+    <group>
+      <id>12</id>
+      <name>Edit Events</name>
+      <desc>Can edit events</desc>
+      <pages></pages>
+      <admin>13,14</admin>
+    </group>
+    <group>
+      <id>13</id>
+      <name>Delete Events</name>
+      <desc>Can delete events</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+    <group>
+      <id>20</id>
+      <name>View Newsletters</name>
+      <desc>Can access News Module and view newsletters</desc>
+      <pages></pages>
+      <admin>0,21</admin>
+    </group>
+    <group>
+      <id>21</id>
+      <name>Add Newsletters</name>
+      <desc>Can add newsletters</desc>
+      <pages></pages>
+      <admin>22</admin>
+    </group>
+    <group>
+      <id>23</id>
+      <name>Delete Newsletters</name>
+      <desc>Can delete newsletters</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+  </groups>
+</extension>

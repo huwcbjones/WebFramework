@@ -85,7 +85,7 @@ while($menu_query->fetch()){
 			$row['down']		= Table::addCell('<a href="#" onclick="processData(\'/action/core/menu_down/'.$MID.'\')"><span class="'.B_ICON.' '.B_ICON.'-chevron-down"></span></a>');
 		}
 	}
-	if($this->accessAdminPage(42)) $row['edit']		= Table::addCell('<a href="menu_edit/'.$MID.'"><span class="'.B_ICON.' '.B_ICON.'-edit"></span></a>');
+	if($this->accessAdminPage(42)) $row['edit']		= Table::addCell('<a href="menu_edit/'.$MID.'/"><span class="'.B_ICON.' '.B_ICON.'-edit"></span></a>');
 	if($this->accessAdminPage(42)) $row['delete']	= Table::addCell('<a href="#" onclick="processData(\'/action/core/menu_remove/'.$MID.'\')"><span class="'.B_ICON.' '.B_ICON.'-remove-sign"></span></a>');
 	$menu->addRow($row);
 	$rown++;

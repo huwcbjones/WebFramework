@@ -14,7 +14,7 @@ class MenuAction extends BaseAction
 	const	 name_space	 = 'Module.Core';
 	const	 version	 = '1.0.1';
 	
-		public function add(){
+	public function add(){
 		$gump = new GUMP();
 		
 		$gump->validation_rules(array(
@@ -158,7 +158,7 @@ class MenuAction extends BaseAction
 		if($add_query->affected_rows==1){
 			return new ActionResult(
 				$this,
-				'/admin/core/menu_edit/'.$valid_data['parent'].'/?d=dropdown',
+				'/admin/core/menu_edit/'.$valid_data['parent'].'/?tp=dropdown',
 				1,
 				'Succeesfully add sub menu item!',
 				B_T_SUCCESS

@@ -175,7 +175,6 @@ class UserController extends Base
 				return $this->cliLogout();
 			}
 			if($this->enabled){
-				$this->parent->logEvent($this::name_space, $user.' logged in via CLI!');
 				return true;
 			}
 			return $this->cliLogout();
@@ -226,7 +225,6 @@ class UserController extends Base
 			$this->loggedIn = true;
 			$this->_fetchDetails();
 			if($this->enabled){
-				$this->parent->logEvent($this::name_space, $user.' logged into CLI');
 				return true;
 			}
 			$this->cliLogout();

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1" method="install">
+  <core>
+    <name>Competitions</name>
+    <namespace>Competitions</namespace>
+    <version>1.0.0</version>
+    <creationDate>March 2014</creationDate>
+    
+    <description>Provides the facility to display and interact with competitions.</description>
+    
+    <author>Huw Jones</author>
+    <authorEmail>huwcbjones@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>(C) 2014 Huw Jones</copyright>
+  </core>
+  <!-- Add all the pages here -->
+  <pages>
+  <!-- EXAMPLE PAGE -->
+  <!--
+    <page>
+      <id>0</id>                Unique page ID (for this module)
+      <title>Example</title>    Page Title
+      <desc></desc>             Page description (will be seen on search engines)
+      <cat2>*</cat2>            Catagory 2 (for URL. E.g: /MODULE/cat2)
+      <cat3></cat3>             Catagory 3 (for URL. E.g: /MODULE/cat2/cat3)
+      <js></js>                 Extra js files to load with the page (CSV)
+      <css></css>               Extra css files to load with the page (CSV)
+    </page>
+    -->
+    <page>
+      <id>0</id>
+      <title>Competitions</title>
+      <desc>View information about competitions hosted by Biggleswade Swimming Club and competitions that BWSC are competing at.</desc>
+      <cat2></cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>1</id>
+      <title>Meet Item</title>
+      <desc></desc>
+      <cat2>meet</cat2>
+      <cat3>*</cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>2</id>
+      <title>Club Championships</title>
+      <desc>Find out more about Biggleswade Swimming Club Championships</desc>
+      <cat2>champs</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>3</id>
+      <title>BWSC Open Meet</title>
+      <desc>Find out about Biggleswade Swimming Club's annual open meet.</desc>
+      <cat2>open</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>4</id>
+      <title>Splash Nights</title>
+      <desc>Splash Nights - The meet to practice racing</desc>
+      <cat2>splash</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>5</id>
+      <title>Results</title>
+      <desc></desc>
+      <cat2>results</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+  </pages>
+  
+  <!-- Backup, update, uninstall -->
+  <!-- Set these to blank to disable that feature, or the script
+       name to handle that operation.
+  -->
+  <backup>backup.php</backup>
+  <update>update.php</update>
+  <uninstall></uninstall>
+  
+  <admininstrator>
+    <!-- Add all the admin pages here -->
+    <!-- EXAMPLE ADMIN PAGE -->
+    <!--
+    <admin>
+      <id>0</id>                Unique admin page ID (for this module)
+      <title>Example</title>    Page name
+      <desc></desc>             Page description
+      <cat>test</cat>           Page catagory (makes URL. E.g: /admin/MODULE/test)
+      <js></js>                 Extra js files to load with the page (CSV)
+      <css></css>               Extra css files to load with the page (CSV)
+    </admin>
+    -->
+    <admin>
+      <id>0</id>
+      <title>Competitions</title>
+      <desc></desc>
+      <cat></cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>1</id>
+      <title>New Competition</title>
+      <desc></desc>
+      <cat>new</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>2</id>
+      <title>Upload from Zip</title>
+      <desc></desc>
+      <cat>add_zip</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>3</id>
+      <title>Core Details</title>
+      <desc></desc>
+      <cat>add_1</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>4</id>
+      <title>Add Notes</title>
+      <desc></desc>
+      <cat>add_2</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>5</id>
+      <title>Add Documents</title>
+      <desc></desc>
+      <cat>add_3</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>6</id>
+      <title>Add Sessions</title>
+      <desc></desc>
+      <cat>add_4</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>7</id>
+      <title>Add Events</title>
+      <desc></desc>
+      <cat>add_5</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>8</id>
+      <title>Results Service</title>
+      <desc></desc>
+      <cat>add_6</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>9</id>
+      <title>Edit Competition</title>
+      <desc></desc>
+      <cat>edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>10</id>
+      <title>Results Server</title>
+      <desc></desc>
+      <cat>results</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <!-- Add all the admin menu items here -->
+    <!-- EXAMPLE ADMIN MENU ITEM -->
+    <!--
+    <menuitem>
+      <link>page</link> The page link for the URL (e.g: /admin/ex_mod/page). Correlates with admin->cat
+      <id>1</id>        The admin page ID. Correlates with admin->id
+    </menuitem>
+    -->
+    <menuitem>
+      <link>new</link>
+      <id>1</id>
+    </menuitem>
+    <menuitem>
+      <link>results</link>
+      <id>10</id>
+    </menuitem>
+  </admininstrator>
+  
+  <groups>
+  <!-- Add all the groups that this module requires below,
+       an example groups is given.
+       Note that all groups are saved as enabled and as secondary groups.
+       This can be changed by logging in as a Group Manager and editing the group
+       after the module installation
+  -->
+  <!-- EXAMPLE GROUP -->
+  <!--
+    <group>
+      <id>0</id>                Unique group ID (for this module)
+      <name>Example</name>      Group name
+      <desc>Example group</desc>Group description
+      <pages>0,1</pages>        Pages that the group has access to (not admin pages)
+      <admin>1,2</admin>        Admin pages that the group has access to (not pages)
+    </page>
+    -->
+    <group>
+      <id>0</id>
+      <name>Admin->Manage Competitions</name>
+      <desc></desc>
+      <pages></pages>
+      <admin>0,1,2,3,4,5,6,7,8,9,10</admin>
+    </group>
+    <group>
+      <id>1</id>
+      <name>Admin->Manage Results Server</name>
+      <desc></desc>
+      <pages></pages>
+      <admin>0,10</admin>
+    </group>
+  </groups>
+</extension>

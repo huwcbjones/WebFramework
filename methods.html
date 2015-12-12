@@ -1,0 +1,1181 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+
+<body>
+<pre>
+lib/_init.php
+lib/autoload.php
+  - function ClassAutoloader($classname) (27)
+  - function __autoload($classname) (74)
+lib/config.inc.php
+lib/debugger.php
+  - public function debug($text) (27)
+  - public function compile() (61)
+lib/defines.php
+lib/fileMIMEs.php
+lib/functions.php
+  - function strgetcsv($string, $delim = ",", $filter = true) (26)
+  - function csvgetstr($array, $delim = ",") (51)
+  - function array_clean(array $haystack) (69)
+  - function array_mode(array $set) (92)
+  - function ranString($length, $strength = 4) (116)
+  - function rrmdir($dirPath) (153)
+  - function rcopy($src, $dst) (169)
+  - function not($boolean) (192)
+  - function getSQLDate($date) (230)
+  - function removeSpecialChars($str) (241)
+lib/webapp.php
+  - function __construct() (59)
+  - function __destruct() (169)
+  - public function logEvent($ns, $event) (190)
+  - public static function clearQuery($dbLink) (201)
+  - public function debug($text) (217)
+  - private function _dbConnect() (286)
+  - private function _setHTTPS() (332)
+  - private function _genPageCats() (360)
+  - public function addHeader($header, $value) (420)
+  - public static function get($key, $set = null) (430)
+  - public static function post($key, $set = null) (448)
+  - public function files($key) (466)
+  - public static function action($controller, $action, $ajax = true) (514)
+  - public static function mkTmpDir() (527)
+  - public static function rmDir($dirname) (544)
+  - public static function extractZip($location) (560)
+lib/base.d/class.actionresult.php
+  - function __construct($parent, $url, $status, $msg, $type='', $data=array()) (30)
+  - function getResult() (45)
+  - function createResult() (49)
+lib/base.d/class.base.php
+  - function __construct($parent) (27)
+lib/base.d/class.baseaction.php
+  - function __construct($parent) (23)
+  - function processAction() (48)
+  - function returnResult($url, $redirect, $msg, $type='', $data=array()) (68)
+  - function inGroup($groupID, $moduleGroup=false, $superadmin=true) (80)
+  - function accessPage($pageID) (86)
+  - function accessAdminPage($pageID) (90)
+lib/base.d/class.baseadminpagecontroller.php
+  - function _getFilename() (29)
+lib/base.d/class.baseajax.php
+  - function __construct($parent) (23)
+  - function processAjax() (48)
+  - function returnResult($url, $redirect, $msg, $type='', $data=array()) (68)
+  - function accessPage($pageID) (80)
+  - function accessAdminPage($pageID) (84)
+lib/base.d/class.basepage.php
+  - public function setStatus($httpStatusCode) (21)
+  - public function getStatus() (32)
+  - public function checkHTTPS($https) (36)
+  - public function getResource($module, $args=array()) (55)
+  - public function getPlugin($plugin, $args=array()) (80)
+  - public function inGroup($groupID, $superadmin=true) (95)
+lib/base.d/class.basepagecontroller.php
+  - function __construct($parent) (29)
+  - function inGroup($groupID, $moduleGroup=false, $superadmin=true) (58)
+  - function accessPage($pageID) (64)
+  - function accessAdminPage($pageID) (68)
+  - public function processPage() (73)
+  - function _getFilename() (84)
+  - function _processPage($file) (96)
+lib/base.d/class.baseplugin.php
+  - function __construct($parent) (24)
+  - protected function _setIndent($indent) (30)
+  - function setIndent($indent) (41)
+lib/base.d/class.baseresource.php
+  - function __construct($parent) (26)
+  - function parseTemplate($variables, $template) (50)
+  - private function _replaceVars($text, $variables, $delim='%') (59)
+lib/classes/class.configmanager.php
+  - public function loadConfig() (27)
+  - public function loadOptions($mySQLr) (52)
+  - public function getOption($name) (71)
+  - private function _loadDefaultConfig() (82)
+lib/classes/class.cookie.php
+  - public static function set($opt, $value, $time=0, $path='/', $domain='', $secure=false, $httponly=true) (22)
+  - public static function get($opt) (35)
+  - public static function getAll() (42)
+  - public static function del($opt, $path='/', $domain='') (49)
+lib/classes/class.error.php
+  - function __construct($parent, $errorCode, $type = 'page', $errorDetails = '') (21)
+  - private function _createError($errorMsg) (38)
+  - private function _createAlert($errorMsg) (45)
+  - private function _createErrorMsg($errorDetails, $buttons = true) (51)
+  - function getError() (91)
+lib/classes/class.logger.php
+  - function logEvent($event) (23)
+lib/classes/class.server.php
+  - public static function get($opt) (22)
+  - public static function getAll() (30)
+lib/classes/class.session.php
+  - public static function getID() (23)
+  - public static function regen() (28)
+  - public static function set($namespace, $opt, $value) (33)
+  - public static function getAll($namespace) (40)
+  - public static function get($namespace, $opt) (53)
+  - public static function del($namespace, $opt) (65)
+lib/classes/class.sessiontokeniser.php
+  - function __construct($parent) (22)
+  - public function create($userID) (34)
+  - public function check() (53)
+  - public function update() (108)
+  - public function destroy() (117)
+lib/classes/class.usercontroller.php
+  - function __construct($parent) (40)
+  - function create() (99)
+  - function authenticate($pass, $id = '', $user = '') (191)
+  - function logout() (220)
+  - function accessPage($pageID) (232)
+  - function inGroup($groupID, $superadmin=true) (240)
+  - function getFirstName() (255)
+  - function getSurname() (259)
+  - function getFullName() (263)
+  - function getUsername() (267)
+  - function getEmail() (271)
+  - function getUserID() (275)
+  - function getGroup() (279)
+  - private function pageAccess() (283)
+  - public function pwd_hash($password, $salt) (313)
+  - public function ranHash($length = 32) (321)
+lib/classes/class.xmlcut.php
+  - public static function fetchTagValue($xml, $tag) (23)
+lib/controllers/action.php
+  - public function setAction() (33)
+  - public function execute() (70)
+lib/controllers/ajax.php
+  - public function setAjax() (33)
+  - public function execute() (70)
+lib/controllers/file.php
+  - function __construct($parent) (28)
+  - public function getFileName() (46)
+  - public function getMIME($filename) (75)
+lib/controllers/image.php
+  - function __construct($parent) (26)
+  - public function getMIME($filename) (42)
+lib/controllers/page.php
+  - public function setPage() (42)
+  - private function _setMaintencePage() (103)
+  - public function setContent($content) (145)
+  - public function setTitle($title) (156)
+  - private function _getPageInfo() (171)
+  - private function _checkNormalPage($cat1, $cat2, $cat3) (204)
+  - private function _checkExtendedPage($cat1, $cat2, $cat3, $cat4) (232)
+  - public function create() (269)
+  - public function getPageDescription() (322)
+  - public function getTitle() (331)
+  - public function getCDN() (344)
+  - public function addCSS($file, $media = '') (357)
+  - public function addJS($file) (372)
+  - public function getResource($module, $args = array()) (387)
+  - public function getPlugin($plugin, $args = array()) (421)
+lib/modules/article.php
+  - function __construct($link) (29)
+  - function article_add($title,$article,$username) (33)
+  - function article_del($ID) (59)
+  - function article_edit($ID,$title,$article,$username,$preview) (85)
+  - function enable($ID,$mode) (107)
+  - function __construct($link) (149)
+  - function setID($ID) (153)
+  - function getID() (156)
+  - function setPublish($enable) (163)
+  - function setPreview($enable) (170)
+  - function createArticle($enable = 1) (178)
+  - function getContent() (235)
+  - function getTitle() (238)
+  - function getPublish() (241)
+  - function getPublishState() (244)
+  - function getEdit() (247)
+  - function getLonger() (250)
+  - function getAuthor() (253)
+  - function getEdited() (256)
+lib/modules/breadcrumb.php
+  - function __construct($parent, $mySQL) (21)
+  - function build() (25)
+  - function getBreadcrumb() (50)
+lib/modules/docs.php
+  - function __construct($link) (19)
+  - function clear($yes=false) (24)
+  - function setID($ID) (34)
+  - function setHitCounter($enable) (42)
+  - function setDocRowTitle($title) (50)
+  - function createDateTitle() (54)
+  - function createVariables() (58)
+  - function createDocRowHeader() (80)
+  - function createDocRow($checkbox=false) (104)
+  - function displayOnPage($pageID) (134)
+  - private function fileSize($location) (141)
+  - private function fileExtension($location) (149)
+  - private function fileLinkCheck($location) (159)
+  - private function simplifyBytes($bytes) (167)
+  - function getSize() (189)
+  - function getTitle() (196)
+  - function getType() (203)
+  - function getDownload() (210)
+  - function getDocRowHeader() (217)
+  - function getDocRow() (224)
+lib/modules/error.php
+  - function __construct($errorCode, $errorDetails='') (19)
+  - function createErrorMsg($errorCode, $errorDetails) (23)
+  - function getError() (48)
+lib/modules/event.log.php
+  - function __construct($link) (19)
+  - function logEvent($event) (23)
+  - function delEvent($event) (38)
+  - function clearLog($conf=false) (51)
+lib/modules/event.php
+  - function __construct($link) (27)
+  - function event_add($title,$starts,$ends,$notes,$location,$allDay) (31)
+  - function event_del($ID) (57)
+  - function event_edit($ID,$title,$enable,$starts,$ends,$notes,$location,$link,$allDay) (83)
+  - function enable($ID,$mode) (105)
+  - function __construct($link) (150)
+  - function setID($ID) (155)
+  - function setCloseBtn($bool) (159)
+  - function getID($ID) (162)
+  - function createData() (165)
+  - function createEvent() (192)
+  - function getData() (256)
+  - function getTimestamp($time) (267)
+  - function getTitle() (273)
+  - function getStart() (279)
+  - function getEnd() (285)
+  - function getNotes() (291)
+  - function getUrl() (297)
+  - function getEvent() (308)
+lib/modules/evtparser.php
+  - function parseHY_Tek($file) (6)
+  - private function _extractEV3($file) (14)
+  - private function _parseEV3_Header($header) (20)
+  - private function _parseEV3_Data($line) (26)
+lib/modules/image.php
+  - function __construct($link) (34)
+  - function create($ID) (37)
+  - function getTitle() (49)
+  - function getLocation() (52)
+  - function getCaption() (55)
+  - function getBrowse() (58)
+  - function getCarousel() (61)
+  - function getGallery() (64)
+lib/modules/location.php
+  - function __construct($link) (33)
+  - function getLocations() (37)
+  - function getLocation($ID) (49)
+  - function getData() (73)
+lib/modules/meet.php
+  - function __construct($link) (56)
+  - function setID($ID) (76)
+  - function setCloseBtn($bool) (79)
+  - function setDispEvts($enable = true) (82)
+  - function clear($yes=false) (89)
+  - function createMeet() (107)
+  - function eventTitle($value,$round=true) (324)
+  - function getDispEvts() (340)
+  - function getID() (343)
+  - function getTitle() (346)
+  - function isEnabled() (349)
+  - function getEnabled() (352)
+  - function getNumberSessions() (355)
+  - function getNumberEvents() (358)
+  - function getDate() (361)
+  - function getDates($option='') (364)
+  - function getDateWordy() (375)
+  - function getNotes($note='') (378)
+  - function getTimes($session,$time) (387)
+  - function getDocs() (390)
+  - function getEvent($session,$event) (397)
+  - function getSession($session) (404)
+  - function getShortMeet() (411)
+  - function getLongMeet() (414)
+  - function shortTitle() (417)
+  - function createShortMeet() (440)
+  - function createLongMeet() (472)
+  - function __construct($link) (667)
+  - function add_Comp($title,$date_s,$date_f,$location,$disp_f,$disp_u,$licence) (671)
+  - function add_Comp_notes($id,$entry,$coaches,$swimmers,$parents) (712)
+  - function add_Comp_docs($id,$docs_array) (738)
+  - function add_Comp_sessions($MID,$sessions) (764)
+  - function add_Comp_events($MID,$events) (814)
+  - function add_Comp_res($MID,$enable,$meet,$series,$text,$download,$services,$nextSession='',$indSession=0) (866)
+  - function createResServ($MID,$authenticated=false) (923)
+  - function removeResServ($MID,$authenicated=false) (1036)
+  - function edit_Comp() (1065)
+  - function del_Comp($ID) (1067)
+  - function enable($ID,$mode) (1105)
+  - function add_Sess() (1126)
+  - function edit_Sess() (1128)
+  - function del_Sess() (1130)
+  - function add_Evt() (1133)
+  - function edit_Evt() (1135)
+  - function del_Evt() (1137)
+lib/modules/navbar.php
+  - function __construct($parent) (24)
+  - function build() (62)
+  - function getNavbar() (125)
+  - function addDivider($offset='', $closeDD = false) (128)
+  - function addItem($cat, $subcat, $thrcat, $title, $startDD=0) (137)
+  - function addDropdown($cat, $subcat, $thrcat, $title) (148)
+  - function closeDropdown($cat, $subcat, $thrcat, $title) (161)
+  - function closeLI($offset) (173)
+  - function closeUL($offset) (178)
+  - function close() (184)
+lib/modules/pagecontroller.php
+  - function __construct($parent) (24)
+  - public function processPage($cat1, $cat2, $cat3, $cat4) (28)
+  - private function _getFilename() (42)
+  - private function _processPage($file) (54)
+lib/modules/recaptchalib.php
+  - function _recaptcha_qsencode ($data) (47)
+  - function _recaptcha_http_post($host, $path, $data, $port = 80) (67)
+  - function recaptcha_get_html ($pubkey, $error = null, $use_ssl = false) (106)
+  - function recaptcha_check_answer ($privkey, $remoteip, $challenge, $response, $extra_params = array()) (152)
+  - function recaptcha_get_signup_url ($domain = null, $appname = null) (202)
+  - function _recaptcha_aes_pad($val) (206)
+  - function _recaptcha_aes_encrypt($val,$ky) (214)
+  - function _recaptcha_mailhide_urlbase64 ($x) (225)
+  - function recaptcha_mailhide_url($pubkey, $privkey, $email) (230)
+  - function _recaptcha_mailhide_email_parts ($email) (248)
+  - function recaptcha_mailhide_html($pubkey, $privkey, $email) (267)
+lib/modules/staff.php
+  - function __construct($link) (20)
+  - function setMode($mode) (24)
+  - function addStaff() (28)
+  - function getStaff() (38)
+lib/modules/swimshop.php
+  - function __construct($link) (7)
+  - public function getAdverts() (10)
+  - function chooseAdNum() (20)
+  - function advert() (45)
+lib/modules/system.php
+  - function __construct($link) (19)
+  - function addOption() (23)
+  - function editOption() (26)
+  - function delOption() (29)
+  - function addPage() (32)
+  - function editPage() (35)
+  - function delPage() (38)
+  - function updateConfig() (41)
+lib/modules/admin/controller.php
+  - function __construct($parent) (20)
+  - public function processPage() (67)
+  - function _getFilename() (87)
+lib/modules/admin/pages/dash.php
+lib/modules/admin/pages/footer.php
+lib/modules/admin/pages/header.php
+lib/modules/admin/pages/nav.php
+lib/modules/competitions/action.php
+lib/modules/competitions/admin.php
+lib/modules/competitions/ajax.php
+lib/modules/competitions/controller.php
+  - function _getFilename() (20)
+lib/modules/competitions/resource.php
+  - function loadOptions() (35)
+  - function parseEvent($evt, $returnArray=false) (51)
+  - function getLocation($component) (76)
+  - function fetchCompetition($id) (83)
+  - function format($type='all') (288)
+lib/modules/competitions/uninstall.php
+  - function uninstall($ctrl) (17)
+lib/modules/competitions/admin/comp_add-docs.php
+  - function openModal() (118)
+lib/modules/competitions/admin/comp_add-events.php
+  - function openModal() (241)
+  - function addEvt(num) (247)
+  - function delEvt(num) (251)
+lib/modules/competitions/admin/comp_add-notes.php
+  - function openModal() (155)
+lib/modules/competitions/admin/comp_add-res.php
+  - function openModal() (204)
+lib/modules/competitions/admin/comp_add-sessions.php
+  - function openModal() (177)
+lib/modules/competitions/admin/comp_del.php
+  - function openModal() (70)
+lib/modules/competitions/admin/comp_view.php
+lib/modules/competitions/admin/new.php
+  - function openModal() (196)
+lib/modules/competitions/pages/champs.php
+lib/modules/competitions/pages/home.php
+  - function getCompetition() (213)
+lib/modules/competitions/pages/meet.php
+lib/modules/competitions/pages/open.php
+lib/modules/competitions/pages/results.php
+lib/modules/competitions/pages/splash.php
+lib/modules/core/action.php
+  - public function clear_status_msg() (20)
+  - public function event_clear() (43)
+  - public function event_del() (54)
+lib/modules/core/admin.php
+lib/modules/core/controller.php
+  - function getHeader($parent) (20)
+  - function getStatusBar($parent) (28)
+  - function getFooter($parent) (36)
+lib/modules/core/admin/conf.php
+lib/modules/core/admin/evt_log.php
+lib/modules/core/admin/opt.php
+lib/modules/core/admin/opt_edit.php
+lib/modules/core/pages/footer.php
+lib/modules/core/pages/header.php
+lib/modules/core/pages/home.php
+lib/modules/core/pages/maintenance.php
+lib/modules/core/pages/status_bar.php
+lib/modules/email/action.php
+  - public function checknames() (21)
+  - public function send() (85)
+lib/modules/email/admin.php
+  - function _getFilename() (20)
+lib/modules/email/ajax.php
+  - public function contacts() (20)
+lib/modules/email/controller.php
+lib/modules/email/admin/email.php
+  - function updateEditor() (66)
+  - function checkNames(btn) (72)
+lib/modules/link/controller.php
+  - public function getHotlink($link) (19)
+  - function getIDs() (33)
+  - function getAllLinks() (36)
+  - function getLink($ID) (48)
+lib/modules/location/action.php
+  - public function add() (20)
+  - public function edit() (59)
+  - function delete() (107)
+lib/modules/location/admin.php
+  - function _getFilename() (20)
+lib/modules/location/controller.php
+  - function _getFilename() (20)
+lib/modules/location/resource.php
+  - function parseLocation($location) (26)
+  - function getLocation($id) (36)
+  - function getComponent($component) (71)
+lib/modules/location/uninstall.php
+  - function uninstall($ctrl) (16)
+lib/modules/location/admin/add.php
+lib/modules/location/admin/dash.php
+lib/modules/location/admin/edit.php
+lib/modules/location/pages/home.php
+lib/modules/modules/action.php
+  - public function pre_install() (20)
+  - public function install_1() (32)
+  - public function install_2() (44)
+  - public function install_3() (56)
+  - public function install_4() (68)
+  - public function install_5() (80)
+  - public function install_6() (92)
+  - public function install_7() (104)
+  - public function install_8() (116)
+  - public function pre_update() (129)
+  - public function update_1() (141)
+  - public function update_2() (153)
+  - public function update_3() (165)
+  - public function update_4() (177)
+  - public function update_5() (189)
+  - public function update_6() (201)
+  - public function update_7() (213)
+  - public function update_8() (225)
+  - public function update_9() (237)
+  - public function pre_uninstall() (250)
+  - public function uninstall_1() (262)
+  - public function uninstall_2() (274)
+  - public function uninstall_3() (286)
+  - public function uninstall_4() (298)
+  - public function uninstall_5() (310)
+  - public function uninstall_6() (322)
+  - public function uninstall_7() (334)
+  - public function uninstall_8() (346)
+lib/modules/modules/admin.php
+  - function _getFilename() (20)
+lib/modules/modules/controller.php
+lib/modules/modules/admin/dash.php
+lib/modules/modules/admin/details.php
+lib/modules/modules/admin/install.php
+lib/modules/modules/admin/install_fromdir.php
+lib/modules/modules/admin/uninstall.php
+lib/modules/modules/admin/uninstall_fromdir.php
+lib/modules/modules/admin/update.php
+lib/modules/modules/admin/update_fromdir.php
+lib/modules/modules/resources/backup.php
+lib/modules/modules/resources/install.php
+  - function __construct($parent, $details = array()) (35)
+  - public function preInstall() (59)
+  - public function extractZip($location) (189)
+  - public function install($step = null) (228)
+  - public function _loadModule() (425)
+  - public function _copyPayload() (478)
+  - public function _registerModule() (530)
+  - public function _registerPages($xml = null) (701)
+  - public function _registerAdmin($xml = null) (850)
+  - public function _registerAdminPages($MOD_ID, $xml = null) (912)
+  - public function _registerAdminMenu($MOD_ID, $xml = null) (993)
+  - public function _registerGroups($xml = null) (1094)
+  - public function _installModule($install = null) (1212)
+  - private function _cleanInstall() (1267)
+  - private function _revertInstall() (1292)
+lib/modules/modules/resources/uninstall.php
+  - function __construct($parent, $details = array()) (35)
+  - public function preUninstall() (69)
+  - public function uninstall($step = null) (140)
+  - private function _clearUninstallID() (207)
+  - public function _uninstallModule() (219)
+  - public function _unregisterGroups() (262)
+  - public function _unregisterAdmin() (339)
+  - public function _unregisterAdminPages() (366)
+  - public function _unregisterAdminMenu() (399)
+  - public function _unregisterMenus() (429)
+  - public function _unregisterPages() (494)
+  - public function _unregisterModule() (537)
+  - public function _removeModule() (581)
+lib/modules/modules/resources/update.php
+  - function __construct($parent) (36)
+  - public function preUpdate() (59)
+  - public function extractZip($location) (198)
+  - public function update($step = null) (227)
+  - private function _getCurrentDetails() (345)
+  - private function _checkModule() (375)
+  - private function _backUp() (470)
+  - private function _updatePayload() (523)
+  - private function _updateModule() (549)
+  - private function _updatePages() (613)
+  - private function _updateAdmin() (644)
+  - private function _updateGroups() (673)
+  - private function _moduleUpdater() (705)
+  - private function _cleanUpdate() (751)
+  - private function _revertUpdate() (776)
+lib/modules/news/action.php
+  - public function article_add() (17)
+  - public function article_edit() (28)
+  - /*public function user_enable() (39)
+  - public function user_disable() (50)
+  - public function user_delete() (61)
+  - public function setpassword() (72)
+  - public function session_destroy() (83)
+  - public function session_destroym() (103)
+  - public function group_add() (123)
+  - public function group_edit() (134)
+  - public function group_enable() (145)
+  - public function group_disable() (156)
+  - public function group_del() (167)
+lib/modules/news/admin.php
+  - function _getFilename() (20)
+lib/modules/news/controller.php
+  - function _getFilename() (20)
+lib/modules/news/resource.php
+  - function __construct($parent, $mode) (24)
+  - function loadOptions() (42)
+  - function parseEvent($evt, $returnArray=false) (58)
+  - function getLocation($component) (83)
+  - function fetchCompetition($id) (90)
+  - function format($type='all') (295)
+lib/modules/news/uninstall.php
+  - function uninstall($ctrl) (16)
+lib/modules/news/admin/article_add.php
+  - function updateEditor()for ( instance in CKEDITOR.instances )CKEDITOR.instances[instance].updateElement();return true; (64)
+lib/modules/news/admin/article_edit.php
+lib/modules/news/admin/article_preview.php
+lib/modules/news/admin/article_view.php
+lib/modules/news/admin/dash.php
+lib/modules/news/admin/event_add.php
+lib/modules/news/admin/event_edit.php
+lib/modules/news/admin/event_preview.php
+lib/modules/news/admin/event_view.php
+lib/modules/news/pages/home.php
+  - function getCompetition() (160)
+lib/modules/news/pages/meet.php
+lib/modules/news/resource/article.php
+  - function __construct($parent) (24)
+  - function loadOptions() (31)
+  - function parseEvent($evt, $returnArray=false) (47)
+  - function getLocation($component) (72)
+  - function fetchCompetition($id) (79)
+  - function format($type='all') (284)
+lib/modules/news/resource/event.php
+  - function __construct($parent, $mode) (24)
+  - function loadOptions() (40)
+  - function parseEvent($evt, $returnArray=false) (56)
+  - function getLocation($component) (81)
+  - function fetchCompetition($id) (88)
+  - function format($type='all') (293)
+lib/modules/news/resources/article.action.php
+  - function add() (17)
+  - /*function edit() (61)
+  - function del() (127)
+  - function enable() (197)
+  - function disable() (241)
+lib/modules/news/resources/article.resource.php
+  - function __construct($parent) (24)
+  - function loadOptions() (31)
+  - function parseEvent($evt, $returnArray=false) (47)
+  - function getLocation($component) (72)
+  - function fetchCompetition($id) (79)
+  - function format($type='all') (284)
+lib/modules/news/resources/event.action.php
+  - function __construct($parent) (20)
+  - function password($requireOldPwd=true, $userID=-1) (46)
+  - function genActivation($email, $type, $return) (164)
+  - function activate() (261)
+  - function recover() (339)
+  - function add() (370)
+  - function edit() (446)
+  - function del() (605)
+  - function enable() (717)
+  - function disable() (770)
+  - function setpassword() (865)
+  - function resend() (969)
+  - function edit_details() (1001)
+lib/modules/news/resources/event.resource.php
+  - function __construct($parent, $mode) (24)
+  - function loadOptions() (40)
+  - function parseEvent($evt, $returnArray=false) (56)
+  - function getLocation($component) (81)
+  - function fetchCompetition($id) (88)
+  - function format($type='all') (293)
+lib/modules/user/action.php
+  - public function login() (20)
+  - public function logout() (88)
+  - public function activate() (93)
+  - public function resend() (99)
+  - public function recover() (105)
+  - public function change_details() (111)
+  - public function password() (117)
+  - public function user_add() (123)
+  - public function user_edit() (133)
+  - public function user_enable() (143)
+  - public function user_disable() (153)
+  - public function user_delete() (163)
+  - public function setpassword() (173)
+  - public function session_destroy() (183)
+  - public function session_destroym() (203)
+  - public function group_add() (223)
+  - public function group_edit() (233)
+  - public function group_enable() (243)
+  - public function group_disable() (253)
+  - public function group_del() (263)
+lib/modules/user/admin.php
+  - function _getFilename() (20)
+lib/modules/user/ajax.php
+  - public function secondary_groups() (20)
+lib/modules/user/controller.php
+lib/modules/user/admin/dash.php
+lib/modules/user/admin/group_add.php
+lib/modules/user/admin/group_edit.php
+lib/modules/user/admin/group_view.php
+lib/modules/user/admin/sessions.php
+lib/modules/user/admin/user_add.php
+lib/modules/user/admin/user_edit.php
+  - $checkPwd = 'function checkPwd()'.PHP_EOL; (58)
+lib/modules/user/admin/user_view.php
+lib/modules/user/pages/activate.php
+lib/modules/user/pages/activate_resend.php
+lib/modules/user/pages/complete.php
+lib/modules/user/pages/home.php
+lib/modules/user/pages/login.php
+lib/modules/user/pages/password.php
+  - function openModal() (90)
+  - function encForm() (97)
+lib/modules/user/pages/profile.php
+lib/modules/user/pages/profile_details.php
+  - function checkEmail() (106)
+lib/modules/user/pages/profile_password.php
+lib/modules/user/pages/recover.php
+lib/modules/user/pages/register.php
+lib/modules/user/pages/resend.php
+lib/modules/user/pages/reset.php
+lib/modules/user/pages/user.php
+lib/modules/user/resources/email_templates.php
+  - static function passwordChange($name, $ip, $location) (13)
+  - static function adminPasswordChange($name) (30)
+  - static function accountCreation($name, $username, $email, $code) (43)
+  - static function resendActivation($name, $username, $email, $code) (68)
+  - static function recoverAccount($name, $username, $email, $code) (93)
+  - /*static function changeEmail($name, $username, $email, $code) (118)
+lib/modules/user/resources/group.php
+  - function add() (17)
+  - function edit() (71)
+  - function del() (138)
+  - function enable() (208)
+  - function disable() (252)
+lib/modules/user/resources/user.php
+  - function __construct($parent) (20)
+  - function password($requireOldPwd=true, $userID=-1) (46)
+  - function genActivation($email, $type, $return) (164)
+  - function activate() (261)
+  - function recover() (339)
+  - function add() (370)
+  - function edit() (446)
+  - function del() (605)
+  - function enable() (717)
+  - function disable() (770)
+  - function setpassword() (865)
+  - function resend() (969)
+  - function edit_details() (1001)
+lib/old_shizzle/admin_dash.php
+lib/old_shizzle/comp_events.php
+lib/old_shizzle/fileTypes.php
+lib/old_shizzle/newsitem.php
+  - function __construct($link) (13)
+  - function setID($ID) (17)
+  - function getID() (20)
+  - function setPublish($enable) (27)
+  - function setPreview($enable) (34)
+  - function createArticle() (42)
+  - function getContent() (89)
+  - function getTitle() (92)
+  - function getPublish() (95)
+  - function getPublishState() (98)
+  - function getEdit() (101)
+  - function getLonger() (104)
+  - function getAuthor() (107)
+  - function getEdited() (110)
+lib/old_shizzle/timthumb-config.php
+lib/old_shizzle/timthumb.php
+  - public static function start() (166)
+  - public function __construct() (182)
+  - public function __destruct() (281)
+  - public function run() (287)
+  - protected function handleErrors() (313)
+  - protected function tryBrowserCache() (334)
+  - protected function tryServerCache() (371)
+  - protected function error($err) (405)
+  - protected function haveErrors() (411)
+  - protected function serveErrors() (417)
+  - protected function serveInternalImage() (428)
+  - protected function cleanCache() (451)
+  - protected function processImageAndWriteToCache($localImage) (488)
+  - protected function calcDocRoot() (824)
+  - protected function getLocalImagePath($src) (848)
+  - protected function realpath($path) (909)
+  - protected function toDelete($name) (919)
+  - protected function serveWebshot() (923)
+  - protected function serveExternalImage() (973)
+  - public static function curlWrite($h, $d) (1005)
+  - protected function serveCacheFile() (1014)
+  - protected function sendImageHeaders($mimeType, $dataSize) (1047)
+  - protected function securityChecks() (1073)
+  - protected function param($property, $default = '') (1075)
+  - protected function openImage($mimeType, $src) (1082)
+  - protected function getIP() (1104)
+  - protected function debug($level, $msg) (1119)
+  - protected function sanityFail($msg) (1130)
+  - protected function getMimeType($file) (1133)
+  - protected function setMemoryLimit() (1140)
+  - protected static function returnBytes($size_str) (1151)
+  - protected function getURL($url, $tempfile) (1161)
+  - protected function serveImg($file) (1224)
+  - protected function set404() (1245)
+  - protected function is404() (1248)
+lib/pages/admin.php
+lib/pages/contacts.php
+lib/pages/gallery.php
+lib/pages/info.php
+lib/pages/location.php
+lib/pages/news.php
+lib/pages/register.php
+lib/pages/admin/competitions.php
+lib/pages/admin/images.php
+lib/pages/admin/news.php
+lib/pages/admin/staff.php
+lib/pages/admin/system.php
+lib/pages/admin/users.php
+lib/pages/admin/competitions/comp_add-docs.php
+  - function openModal() (118)
+lib/pages/admin/competitions/comp_add-events.php
+  - function openModal() (241)
+  - function addEvt(num) (247)
+  - function delEvt(num) (251)
+lib/pages/admin/competitions/comp_add-notes.php
+  - function openModal() (155)
+lib/pages/admin/competitions/comp_add-res.php
+  - function openModal() (204)
+lib/pages/admin/competitions/comp_add-sessions.php
+  - function openModal() (177)
+lib/pages/admin/competitions/comp_add.php
+  - function openModal() (196)
+lib/pages/admin/competitions/comp_del.php
+  - function openModal() (70)
+lib/pages/admin/competitions/comp_view.php
+lib/pages/admin/news/article_add.php
+lib/pages/admin/news/article_del.php
+  - function openModal() (70)
+lib/pages/admin/news/article_edit.php
+lib/pages/admin/news/article_preview.php
+lib/pages/admin/news/article_view.php
+  - function delete_mod() (220)
+  - function delete_articles(btn) (234)
+lib/pages/admin/news/event_add.php
+lib/pages/admin/news/event_del.php
+  - function openModal() (74)
+lib/pages/admin/news/event_edit.php
+lib/pages/admin/news/event_preview.php
+lib/pages/admin/news/event_view.php
+lib/pages/admin/system/config.php
+lib/pages/admin/system/event_log - Copy.php
+lib/pages/admin/system/event_log.php
+lib/pages/admin/system/option_edit.php
+lib/pages/admin/system/options.php
+lib/pages/admin/users/group_add.php
+lib/pages/admin/users/group_edit.php
+lib/pages/admin/users/group_view.php
+lib/pages/admin/users/user_add.php
+lib/pages/admin/users/user_edit.php
+  - $checkPwd = 'function checkPwd()'.PHP_EOL; (66)
+lib/pages/admin/users/user_view.php
+  - function set_pwd_mod() (162)
+lib/pages/info/coaches.php
+lib/pages/info/committee.php
+lib/pages/info/links.php
+lib/pages/info/policies.php
+lib/pages/info/records.php
+lib/pages/info/training.php
+lib/pages/news/article.php
+lib/pages/news/events.php
+lib/pages/news/item.php
+lib/pages/news/letters.php
+lib/pages/news/events/event.php
+lib/pages/register/activate.php
+lib/pages/register/complete.php
+lib/pages/register/resend.php
+lib/plugins/AES.php
+  - public static function cipher($input, $w)    // main cipher function [§5.1] (19)
+  - private static function addRoundKey($state, $w, $rnd, $Nb)  // xor Round Key into state S [§5.1.4] (45)
+  - private static function subBytes($s, $Nb)    // apply SBox to state S [§5.1.1] (52)
+  - private static function shiftRows($s, $Nb)    // shift row r of state S left by r bytes [§5.1.2] (59)
+  - private static function mixColumns($s, $Nb)   // combine bytes of each col of state S [§5.1.3] (68)
+  - public static function keyExpansion($key)  // generate Key Schedule from Cipher Key [§5.2] (92)
+  - private static function subWord($w)    // apply SBox to 4-byte word w (119)
+  - private static function rotWord($w)    // rotate 4-byte word w left by one byte (124)
+  - public static function encrypt($plaintext, $password, $nBits) (190)
+  - public static function decrypt($ciphertext, $password, $nBits) (260)
+  - private static function urs($a, $b) (320)
+lib/plugins/accordion/plugin.php
+  - function addPage($id,$header = "",$content="") (26)
+  - function changeHeader($id,$header="") (31)
+  - function changeContent($id,$content="") (35)
+  - function setID($id) (39)
+  - function setOpen($index) (43)
+  - function getID() (47)
+  - function create() (50)
+  - function getAccordion() (78)
+lib/plugins/alert/plugin.php
+  - function setAlert($msg, $type='', $id='') (24)
+  - function getAlert($container=true) (34)
+  - function getID() (43)
+  - private function _processMsg() (46)
+lib/plugins/carousel/plugin.php
+  - function setIndent($indent) (26)
+  - function addImage($image) (30)
+  - function addXnewimages($mySQL,$noOfImages) (35)
+  - function setHeight($height) (48)
+  - function setCaptionAlign($align) (51)
+  - function removeImage($ID) (54)
+  - function setID($id) (58)
+  - function setShuffle($shuffle) (62)
+  - function getID() (66)
+  - function getHeight() (70)
+  - function create() (73)
+lib/plugins/emailer/PHPMailerAutoload.php
+  - function PHPMailerAutoload($classname) (24)
+  - function __autoload($classname) (45)
+lib/plugins/emailer/class.phpmailer.php
+  - public function __construct($exceptions = false) (568)
+  - public function __destruct() (583)
+  - private function mailPassthru($to, $subject, $body, $header, $params) (603)
+  - protected function edebug($str) (626)
+  - public function isHTML($isHtml = true) (650)
+  - public function isSMTP() (663)
+  - public function isMail() (672)
+  - public function isSendmail() (681)
+  - public function isQmail() (697)
+  - public function addAddress($address, $name = '') (715)
+  - public function addCC($address, $name = '') (727)
+  - public function addBCC($address, $name = '') (739)
+  - public function addReplyTo($address, $name = '') (750)
+  - protected function addAnAddress($kind, $address, $name = '') (765)
+  - public function setFrom($address, $name = '', $auto = true) (808)
+  - public function getLastMessageID() (837)
+  - public static function validateAddress($address, $patternselect = 'auto') (856)
+  - public function send() (937)
+  - public function preSend() (959)
+  - public function postSend() (1027)
+  - protected function sendmailSend($header, $body) (1066)
+  - protected function mailSend($header, $body) (1127)
+  - public function getSMTPInstance() (1168)
+  - protected function smtpSend($header, $body) (1188)
+  - public function smtpConnect($options = array()) (1258)
+  - public function smtpClose() (1351)
+  - public function setLanguage($langcode = 'en', $lang_path = '') (1370)
+  - public function getTranslations() (1417)
+  - public function addrAppend($type, $addr) (1432)
+  - public function addrFormat($addr) (1448)
+  - public function wrapText($message, $length, $qp_mode = false) (1470)
+  - public function utf8CharBoundary($encodedText, $maxLength) (1558)
+  - public function setWordWrap() (1596)
+  - public function createHeader() (1620)
+  - public function getMailMIME() (1721)
+  - public function getSentMIMEMessage() (1776)
+  - public function createBody() (1789)
+  - protected function getBoundary($boundary, $charSet, $contentType, $encoding) (1953)
+  - protected function endBoundary($boundary) (1983)
+  - protected function setMessageType() (1995)
+  - public function headerLine($name, $value) (2020)
+  - public function textLine($value) (2031)
+  - public function addAttachment($path, $name = '', $encoding = 'base64', $type = '', $disposition = 'attachment') (2047)
+  - public function getAttachments() (2090)
+  - protected function attachAll($disposition_type, $boundary) (2103)
+  - protected function encodeFile($path, $encoding = 'base64') (2211)
+  - public function encodeString($str, $encoding = 'base64') (2252)
+  - public function encodeHeader($str, $position = 'text') (2288)
+  - public function hasMultiBytes($str) (2351)
+  - public function has8bitChars($text) (2365)
+  - public function base64EncodeWrapMB($str, $linebreak = null) (2380)
+  - public function encodeQP($string, $line_max = 76) (2422)
+  - public function encodeQPphp( (2447)
+  - public function encodeQ($str, $position = 'text') (2463)
+  - public function addStringAttachment( (2515)
+  - public function addEmbeddedImage($path, $cid, $name = '', $encoding = 'base64', $type = '', $disposition = 'inline') (2555)
+  - public function addStringEmbeddedImage( (2600)
+  - public function inlineImageExists() (2632)
+  - public function attachmentExists() (2646)
+  - public function alternativeExists() (2660)
+  - public function clearAddresses() (2669)
+  - public function clearCCs() (2681)
+  - public function clearBCCs() (2693)
+  - public function clearReplyTos() (2705)
+  - public function clearAllRecipients() (2714)
+  - public function clearAttachments() (2726)
+  - public function clearCustomHeaders() (2735)
+  - protected function setError($msg) (2746)
+  - public static function rfcDate() (2764)
+  - protected function serverHostname() (2778)
+  - protected function lang($key) (2799)
+  - public function isError() (2817)
+  - public function fixEOL($str) (2829)
+  - public function addCustomHeader($name, $value = null) (2849)
+  - public function msgHTML($message, $basedir = '', $advanced = false) (2870)
+  - public function html2text($html, $advanced = false) (2923)
+  - public static function _mime_types($ext = '') (2944)
+  - public static function filenameToType($filename) (3046)
+  - public static function mb_pathinfo($path, $options = null) (3068)
+  - public function set($name, $value = '') (3118)
+  - public function secureHeader($str) (3141)
+  - public static function normalizeBreaks($text, $breaktype = "\r\n") (3156)
+  - public function sign($cert_filename, $key_filename, $key_pass) (3169)
+  - public function DKIM_QP($txt) (3182)
+  - public function DKIM_Sign($signHeader) (3203)
+  - public function DKIM_HeaderC($signHeader) (3229)
+  - public function DKIM_BodyC($body) (3249)
+  - public function DKIM_Add($headers_line, $subject, $body) (3272)
+  - public function getToAddresses() (3335)
+  - public function getCcAddresses() (3345)
+  - public function getBccAddresses() (3355)
+  - public function getReplyToAddresses() (3365)
+  - public function getAllRecipientAddresses() (3375)
+  - protected function doCallback($isSent, $to, $cc, $bcc, $subject, $body, $from) (3390)
+  - public function errorMessage() (3409)
+lib/plugins/emailer/class.pop3.php
+  - public static function popBeforeSmtp( (140)
+  - public function authorise($host, $port = false, $tval = false, $username = '', $password = '', $debug_level = 0) (165)
+  - public function connect($host, $port = false, $tval = 30) (207)
+  - public function login($username = '', $password = '') (266)
+  - public function disconnect() (296)
+  - private function getResponse($size = 128) (315)
+  - private function sendString($string) (330)
+  - private function checkResponse($string) (348)
+  - private function setError($error) (367)
+  - private function catchWarning($errno, $errstr, $errfile, $errline) (387)
+lib/plugins/emailer/class.smtp.php
+  - protected function edebug($str) (152)
+  - public function connect($host, $port = null, $timeout = 30, $options = array()) (183)
+  - public function startTLS() (272)
+  - public function authenticate( (300)
+  - protected function hmac($data, $key) (415)
+  - public function connected() (447)
+  - public function close() (473)
+  - public function data($msg_data) (498)
+  - public function hello($host = '') (580)
+  - protected function sendHello($hello, $host) (595)
+  - public function mail($from) (613)
+  - public function quit($close_on_error = true) (631)
+  - public function recipient($toaddr) (651)
+  - public function reset() (667)
+  - protected function sendCommand($command, $commandstring, $expect) (680)
+  - public function sendAndMail($from) (730)
+  - public function verify($name) (741)
+  - public function noop() (752)
+  - public function turn() (766)
+  - public function client_send($data) (783)
+  - public function getError() (796)
+  - public function getLastReply() (806)
+  - protected function get_lines() (820)
+  - public function setVerp($enabled = false) (874)
+  - public function getVerp() (883)
+  - public function setDebugOutput($method = 'echo') (892)
+  - public function getDebugOutput() (901)
+  - public function setDebugLevel($level = 0) (910)
+  - public function getDebugLevel() (919)
+  - public function setTimeout($timeout = 0) (928)
+  - public function getTimeout() (937)
+lib/plugins/emailer/plugin.php
+  - public function __construct($exceptions = false) (30)
+  - public function msgHTML($message, $basedir = '', $advanced = false) (57)
+lib/plugins/emailer/extras/EasyPeasyICS.php
+  - public function __construct($calendarName="") (27)
+  - public function addEvent($start, $end, $summary="", $description="", $url="") (36)
+  - public function render($output = true) (47)
+lib/plugins/emailer/extras/class.html2text.php
+  - public function __construct($source = '', $from_file = false, $options = array()) (274)
+  - public function set_html($source, $from_file = false) (291)
+  - public function get_text() (307)
+  - public function p() (329)
+  - public function set_allowed_tags($allowed_tags = '') (340)
+  - public function set_base_url($url = '') (352)
+  - protected function _convert() (373)
+  - protected function _converter(&$text) (406)
+  - protected function _build_link_list($link, $display, $link_override = null) (464)
+  - protected function _convert_pre(&$text) (507)
+  - protected function _convert_blockquotes(&$text) (544)
+  - protected function _preg_callback($matches) (599)
+  - protected function _preg_pre_callback( (629)
+  - private function _toupper($str) (642)
+  - private function _strtoupper($str) (664)
+lib/plugins/emailer/extras/htmlfilter.php
+  - function tln_casenormalize(&$val) (68)
+  - function tln_skipspace($body, $offset) (83)
+  - function tln_findnxstr($body, $offset, $needle) (104)
+  - function tln_findnxreg($body, $offset, $reg) (126)
+  - function tln_getnxtag($body, $offset) (156)
+  - function tln_deent(&$attvalue, $regex, $hex = false) (442)
+  - function tln_defang(&$attvalue) (469)
+  - function tln_unspace(&$attvalue) (496)
+  - function tln_fixatts( (517)
+  - function tln_sanitize( (592)
+  - function HTMLFilter($body, $trans_image_path, $block_external_images = false) (730)
+lib/plugins/emailer/extras/ntlm_sasl_client.php
+lib/plugins/form/extra.php
+  - function build() (29)
+  - function getExtra() (47)
+  - function setIndent($indent) (54)
+  - function addHTML($html) (58)
+  - function addDeleteConfModal($type, $action, $auth=false) (62)
+  - function addEnableConfModal($type, $action, $auth=false) (66)
+  - function addDisableConfModal($type, $action, $auth=false) (71)
+  - function addCustomConfModal($prefix, $confIcon, $type, $action, $prompt = '', $auth=false, $conf=false) (76)
+  - private function _ConfModal($mode, $icon, $type, $action, $auth=false, $conf=false, $prompt = '', $cust=false) (80)
+  - function addScript($script) (140)
+  - private function _addConfModalScript($mode, $type, $custom=false) (148)
+  - $script = 'function '.$mode.'_mod()'.PHP_EOL; (149)
+  - $script.= 'function '.$mode.'_'.$type.'(btn)'.PHP_EOL; (166)
+lib/plugins/form/plugin.php
+  - function __construct($parent, $id, $action, $method = 'get', $enctype = (60)
+  - function addFormClass($class) (82)
+  - function setColumns($label = 3, $field = 5, $validation = -1) (99)
+  - function setIndent($indent) (116)
+  - function setAutofill($autofill = false) (128)
+  - function getForm() (145)
+  - function getID() (153)
+  - function addHTML($html, $line = true) (163)
+  - private function _genFormHeader() (178)
+  - private function _registerAction() (206)
+  - function build() (219)
+  - function addReCAPTCHA() (244)
+  - function addBtnLine($buttons = array()) (328)
+  - function addHiddenField($name, $value, $id = '') (372)
+  - function addSelect2($title, $name, $value, $help = array('t' => '', 'p' => ''), (393)
+  - function addDateTime($title, $name, $value, $help = array('t' => '', 'p' => ''), (430)
+  - function addTextField($title, $name, $value, $help = array('t' => '', 'p' => ''), (496)
+  - function addFileUpload($title, $name, $help = array('t' => '', 'p' => ''), $options = (537)
+  - function addPasswordField($title, $name, $value, $help = array('t' => '', 'p' => (572)
+  - function addTextArea($title, $name, $value, $rows = 3, $help = array('t' => '', (647)
+  - function addBtnGroup($title, $name, $buttons = array(), $help = array('t' => ''), (693)
+  - function addButtonGroup($title, $name, $buttons = array(), $help = array('t' => (710)
+  - function addSelect($title, $name, $option = array(), $help = array('t' => ''), $options = (775)
+  - function addCollapseOptGrid($mode, $title, $name, $panels = array(), $help = (843)
+  - function addConfirmCheck($title, $name, $text, $help = array('t' => ''), $options = (923)
+  - function addOptionGrid($mode, $title, $name, $option = array(), $help = array('t' => (963)
+  - private function _line($line, $id = '') (1031)
+  - private function _label($title, $name, $help, $options) (1050)
+  - private function _addCtrlBtn($width, $size, $style, $action = array(), $label, $icon) (1083)
+  - private function _input($type, $name, $id, $value, $options, $placeholder = '', (1135)
+  - private function _textarea($name, $id, $value, $rows, $placeholder = '', $disabled = false, (1178)
+  - private function _openBtnGroup() (1203)
+  - private function _closeBtnGroup() (1216)
+  - private function _addBtn($style, $name, $id, $label, $value, $checked, $disabled) (1234)
+  - private function _openSelect($name, $id, $multiple) (1265)
+  - private function _closeSelect() (1284)
+  - private function _addSelectOption($opt) (1297)
+  - private function _openOptionGrid() (1314)
+  - private function _closeOptionGrid() (1325)
+  - private function _addOptionBox($mode, $name, $box) (1338)
+  - private function _addCheckBox($name, $box) (1365)
+  - private function _addRadioBox($name, $box) (1376)
+  - private function _spry($id, $field, $type, $name, $options) (1391)
+  - private function _spryValidateMsg($id, $options) (1414)
+  - function addScript($script) (1441)
+  - private function _addBtnScript($btn) (1457)
+  - private function _addSpryScript($id, $type, $name, $options) (1486)
+  - static function toggleLink($parent, $value, $indent = '', $group = '', $options = (1562)
+  - function __construct() (1641)
+  - function validate($type, $value, $sanitise = false) (1666)
+  - function sanitise($type, $value) (1712)
+lib/plugins/modal/plugin.php
+  - function __construct($parent) (27)
+  - function setID($ID) (36)
+  - function setLeft($mode,$text,$glyph="",$type='close',$onclick='',$data=array()) (41)
+  - function setCentre($mode,$text,$glyph="",$type='button',$onclick='',$data=array()) (61)
+  - function setRight($mode,$text,$glyph="",$type='button',$onclick='',$data=array()) (76)
+  - function setBody($content) (92)
+  - function setTitle($title) (98)
+  - function create() (104)
+  - function getModal() (130)
+lib/plugins/modalconf/plugin.php
+  - function __construct($parent, $action, $type, $webAction, $method='') (35)
+  - function addDefaultConfig($action='', $type='', $webAction='', $method='') (48)
+  - function addDefaultScript() (62)
+  - $script.= 'function '.$action.'_mod()'.PHP_EOL; (66)
+  - function addForm($action='', $type='', $webAction='', $method='') (84)
+  - function setDefaultContent($action='', $type='') (93)
+  - function setContent($content) (104)
+  - function setDefaultModal($action='', $type='') (109)
+  - function setTitle($title) (123)
+  - function setLeftBtn($mode,$text,$glyph="",$type='close',$onclick='',$data=array()) (127)
+  - function setRightBtn($mode,$text,$glyph="",$type='button',$onclick='',$data=array()) (131)
+  - function setCentreBtn($mode,$text,$glyph="",$type='button',$onclick='',$data=array()) (138)
+  - function addScript($script) (143)
+  - function addShowScript() (148)
+  - $script.= 'function '.$action.'_mod() $("#'.$action.'_'.$type.'s").modal("show"); return false; '.PHP_EOL; (152)
+  - function build() (158)
+  - function getModal() (165)
+lib/plugins/paginator/plugin.php
+  - function setItemsPerPage($itemsPerPage) (29)
+  - function setItems($items) (33)
+  - function setCurrentPage($page) (37)
+  - function setPageLink($link) (41)
+  - function createPaginator() (46)
+  - function getPages() (67)
+  - function getPaginator() (70)
+lib/plugins/table/plugin.php
+  - function __construct($parent, $id) (53)
+  - function setID($id) (69)
+  - function addClass($class) (82)
+  - function sort($bool) (96)
+  - function pager($bool) (110)
+  - function sticky($bool) (126)
+  - function responsive($bool) (145)
+  - function addHeader($fields) (164)
+  - function addFooter($fields) (176)
+  - function addRow($fields) (188)
+  - function build() (199)
+  - function getTable() (243)
+  - private function _genTableHead() (256)
+  - private function _genTableFoot() (288)
+  - private function _genTablePager() (319)
+  - private function _genRow($row) (346)
+  - private function _genPageArray() (378)
+  - private function _genScripts() (412)
+  - private function _genSortScript() (428)
+  - static function addTHeadCell($html, $sort = true, $id = '', $class = '', $noWrap = false, (498)
+  - static function addCell($html, $id = '', $class = '', $noWrap = false) (523)
+lib/plugins/tooltip/plugin.php
+  - static function helpTooltip($help) (18)
+</pre>
+</body>
+</html>

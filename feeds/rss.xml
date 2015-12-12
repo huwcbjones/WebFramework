@@ -1,0 +1,70 @@
+<?php
+/**
+ * RSS News Feed
+ *
+ * Generates the RSS newsfeed
+ *
+ * @category   News.Article.Feed
+ * @package    rss.xml
+ * @author     Huw Jones <huwcbjones@gmail.com>
+ * @copyright  2014 Huw Jones
+*/
+
+/*
+ * lib/config.inc.php
+ * lib/functions,php
+ * lib/modules/article.php
+ */
+
+header("Content-Type: application/xml; charset=ISO-8859-1");
+include_once("../lib/config.inc.php");
+include_once("../lib/functions.php");
+include_once("../lib/modules/article.php");
+main();
+
+$details = $mySQL['r']->prepare("SELECT `value` FROM `core_options` WHERE `name`='rss_description'");
+$details->execute();  
+$details->bind_result($description);
+$details->fetch();
+
+$rss = '<?xml version="1.0" encoding="ISO-8859-1" ?>'.PHP_EOL;
+$rss.= '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">'.PHP_EOL;
+$rss.= '  <channel>'.PHP_EOL;
+$rss.= '    <atom:link href="http://'.$_SERVER['HTTP_HOST'].'/feeds/rss.xml" rel="self" type="application/rss+xml" />'.PHP_EOL;
+$rss.= '    <title>Biggleswade Swimming Club</title>'.PHP_EOL;
+$rss.= '    <link>http://'.$_SERVER['HTTP_HOST'].'</link>'.PHP_EOL;
+$rss.= '    <description>'. $description .'</description>'.PHP_EOL;
+$rss.= '    <language>en-gb</language>'.PHP_EOL;
+$rss.= '    <image>'.PHP_EOL;
+$rss.= '      <title>Biggleswade Swimming Club</title>'.PHP_EOL;
+$rss.= '      <url>http://'.$_SERVER['HTTP_HOST'].'/images/BWSCLogo.png</url>'.PHP_EOL;
+$rss.= '      <link>http://'.$_SERVER['HTTP_HOST'].'</link>'.PHP_EOL;
+$rss.= '      <width>144</width>'.PHP_EOL;
+$rss.= '      <height>144</height>'.PHP_EOL;
+$rss.= '    </image>'.PHP_EOL;
+
+$details->free_result();
+$item_query = $mySQL['r']->prepare("SELECT `ID` FROM `news_articles` WHERE `enable`='1' ORDER BY `ID` DESC");
+$item_query->execute();
+$item_query->store_result();
+$item_query->bind_result($ID);
+$items = '';
+$article = new NewsItem($mySQL);
+while($item_query->fetch()){
+	$article->setID($ID);
+	$article->createArticle();
+	$rss .= '    <item>'.PHP_EOL;
+	$rss .= '      <title>'. $article->getTitle() .'</title>'.PHP_EOL;
+	$rss .= '      <guid>http://'.$_SERVER['HTTP_HOST'].'/news/article?a='. $ID.'</guid>'.PHP_EOL;
+	$rss .= '      <link>http://'.$_SERVER['HTTP_HOST'].'/news/article?a='. $ID.'</link>'.PHP_EOL;
+	$rss .= '      <author>'. $article->getAuthor().'</author>'.PHP_EOL;
+	$article->short = str_replace('&nbsp;',' ',$article->short);
+	$rss .= '      <description><![CDATA['. html_entity_decode($article->short) .']]></description>'.PHP_EOL;
+	$rss .= '      <pubDate>'. date("r",strtotime($article->pub_date)) .'</pubDate>'.PHP_EOL;
+	$rss .= '    </item>'.PHP_EOL;
+}
+$rss .= '  </channel>'.PHP_EOL;
+$rss .= '</rss>'.PHP_EOL;
+ 
+print $rss;
+?>

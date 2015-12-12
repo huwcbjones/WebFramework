@@ -6,7 +6,6 @@
  *
  * @category   Plugins.Bootstrap.Carousel
  * @package    carousel.php
- * @site       www.biggleswadesc.org
  * @author     Huw Jones <huwcbjones@gmail.com>
  * @copyright  2014 Huw Jones
 */

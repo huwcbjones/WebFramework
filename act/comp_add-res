@@ -1,0 +1,37 @@
+<?php
+if(file_exists($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php")){include($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php");}
+defined("ERRORS")? ini_set("display_errors",ERRORS):ini_set("display_errors",0);
+error_reporting(E_ALL);
+require($_SERVER['DOCUMENT_ROOT']."/lib/functions.php");
+require($_SERVER['DOCUMENT_ROOT']."/lib/meet.php");
+main(); // Prepares environment
+$id = $_POST['ID'];
+$meet = $_POST['meet'];
+$series = $_POST['series'];
+$text = $_POST['text'];
+$resDown = $_POST['e_r_d'];
+$services = $_POST['e_r_s'];
+$comp = new Competition($mySQL);
+$comp_add = $comp->add_Comp_res($id,$meet,$series,$text,$resDown,$services);
+var_dump($comp_add);
+if(is_array($comp_add)){
+	header("Location: /admin/competitions/comp_view?msg=comp_add_complete-OK");exit();
+}else{
+	switch($comp_add){
+		case 1:
+			header("Location: /admin/competitions/comp_add-res?msg=comp_add_rees-F1&m=".$id);exit();
+			break;
+		case 2:
+			header("Location: /admin/competitions/comp_add-res?msg=unspec&m=".$id);exit();
+			break;
+		case 3:
+			header("Location: /admin/competitions/comp_add-res?msg=comp_add_res-F2&m=".$id);exit();
+			break;
+		case 4:
+			header("Location: /admin/competitions/comp_view?msg=privilege-F");exit();
+			break;
+		default:
+			header("Location: /admin/competitions/comp_add-res?msg=unspec&m=".$id);exit();
+	}
+}
+?>

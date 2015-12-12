@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1" method="install">
+  <core>
+    <name>User and Groups</name>
+    <namespace>User</namespace>
+    <version>1.0.1</version>
+    <creationDate>May 2014</creationDate>
+    
+    <description>Provides the functionality for user and groups. Also adds the admin area for managing users.</description>
+    
+    <author>Huw Jones</author>
+    <authorEmail>huwcbjones@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>(C) 2014 Huw Jones</copyright>
+  </core>
+  <!-- Add all the pages here -->
+  <pages>
+  <!-- EXAMPLE PAGE -->
+  <!--
+    <page>
+      <id>0</id>
+      <title>Example</title>
+      <desc></desc>
+      <cat2>*</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+  -->
+    <page>
+      <id>0</id>
+      <title>Member's Area</title>
+      <desc></desc>
+      <cat2></cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>1</id>
+      <title>Login</title>
+      <desc></desc>
+      <cat2>login</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>2</id>
+      <title>Authenticate</title>
+      <desc></desc>
+      <cat2>auth</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>10</id>
+      <title>Register</title>
+      <desc></desc>
+      <cat2>register</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>11</id>
+      <title>Activate Account</title>
+      <desc></desc>
+      <cat2>activate</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>12</id>
+      <title>Resend Activation</title>
+      <desc></desc>
+      <cat2>resend</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>13</id>
+      <title>Account Recovery</title>
+      <desc></desc>
+      <cat2>recover</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>20</id>
+      <title>My Profile</title>
+      <desc></desc>
+      <cat2>profile</cat2>
+      <cat3></cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>21</id>
+      <title>Edit my Details</title>
+      <desc></desc>
+      <cat2>profile</cat2>
+      <cat3>details</cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>22</id>
+      <title>Change my Email Address</title>
+      <desc></desc>
+      <cat2>profile</cat2>
+      <cat3>email</cat3>
+      <js></js>
+      <css></css>
+    </page>
+    <page>
+      <id>23</id>
+      <title>Change my Password</title>
+      <desc></desc>
+      <cat2>profile</cat2>
+      <cat3>password</cat3>
+      <js></js>
+      <css></css>
+    </page>
+  </pages>
+  
+  <!-- Backup, update, uninstall -->
+  <!-- Set these to blank to disable that feature, or the script
+       name to handle that operation.
+  -->
+  <backup>backup.php</backup>
+  <update>1</update>
+  <uninstall></uninstall>
+  
+  <admininstrator>
+    <!-- Add all the admin pages here -->
+    <!-- EXAMPLE ADMIN PAGE -->
+    <!--
+    <admin>
+      <id>0</id>
+      <title>Example</title>
+      <desc></desc>
+      <cat>test</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    -->
+    <admin>
+      <id>0</id>
+      <title>Users &amp; Groups</title>
+      <desc></desc>
+      <cat></cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>1</id>
+      <title>View Users</title>
+      <desc></desc>
+      <cat>user_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>2</id>
+      <title>New User</title>
+      <desc></desc>
+      <cat>user_add</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>3</id>
+      <title>Edit User</title>
+      <desc></desc>
+      <cat>user_edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>11</id>
+      <title>View Groups</title>
+      <desc></desc>
+      <cat>group_view</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>12</id>
+      <title>New Group</title>
+      <desc></desc>
+      <cat>group_add</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>13</id>
+      <title>Edit Group</title>
+      <desc></desc>
+      <cat>group_edit</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <admin>
+      <id>20</id>
+      <title>Sessions</title>
+      <desc></desc>
+      <cat>sessions</cat>
+      <js></js>
+      <css></css>
+    </admin>
+    <!-- Add all the admin menu items here -->
+    <!-- EXAMPLE ADMIN MENU ITEM -->
+    <!--
+    <menuitem>
+      <link>page</link>
+      <id>1</id>
+    </menuitem>
+    -->
+    <menuitem>
+      <link>sessions</link>
+      <id>20</id>
+    </menuitem>
+    <menuitem>
+      <link>user_view</link>
+      <id>1</id>
+    </menuitem>
+    <menuitem>
+      <link>user_add</link>
+      <id>2</id>
+    </menuitem>
+    <menuitem>
+      <link>group_view</link>
+      <id>11</id>
+    </menuitem>
+    <menuitem>
+      <link>group_add</link>
+      <id>12</id>
+    </menuitem>
+  </admininstrator>
+  <groups>
+    <!-- Add all the module groups here -->
+    <!-- EXAMPLE GROUP -->
+    <!--
+    <group>
+      <id>0</id>                        Unique group ID (for this module)
+      <name>Example</name>              Group name
+      <desc>An exmaple group</desc>     Group description
+      <pages>0,1</pages>                Page IDs, this group can access (unique to this module)
+      <admin>1,2</admin>                Admin Page IDs, this group can access (unique to this module)
+    </group>
+    -->
+    <group>
+      <id>0</id>
+      <name>View Users</name>
+      <desc>Can access U&amp;G Module and view users</desc>
+      <pages></pages>
+      <admin>0,1</admin>
+    </group>
+    <group>
+      <id>1</id>
+      <name>Add User</name>
+      <desc>Can add users</desc>
+      <pages></pages>
+      <admin>2</admin>
+    </group>
+    <group>
+      <id>2</id>
+      <name>Edit User</name>
+      <desc>Can edit users</desc>
+      <pages></pages>
+      <admin>3</admin>
+    </group>
+    <group>
+      <id>3</id>
+      <name>Delete User</name>
+      <desc>Can delete users</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+    <group>
+      <id>10</id>
+      <name>View Groups</name>
+      <desc>Can access U&amp;G Module and view groups</desc>
+      <pages></pages>
+      <admin>0,4</admin>
+    </group>
+    <group>
+      <id>11</id>
+      <name>Add Group</name>
+      <desc>Can add groups</desc>
+      <pages></pages>
+      <admin>5</admin>
+    </group>
+    <group>
+      <id>12</id>
+      <name>Edit Group</name>
+      <desc>Can edit groups</desc>
+      <pages></pages>
+      <admin>6</admin>
+    </group>
+    <group>
+      <id>13</id>
+      <name>Delete Group</name>
+      <desc>Can delete groups</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+    <group>
+      <id>20</id>
+      <name>Manage Sessions</name>
+      <desc>Can manage user sessions</desc>
+      <pages></pages>
+      <admin></admin>
+    </group>
+  </groups>
+</extension>

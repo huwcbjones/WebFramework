@@ -1,0 +1,46 @@
+<?php
+/**
+ * Events (calendar) JSON generator
+ *
+ * Created the JSON array to drive the events ont the calendar
+ *
+ * @category   News.Events.Feed
+ * @package    events_feed.json
+ * @author     Huw Jones <huwcbjones@gmail.com>
+ * @copyright  2014 Huw Jones
+*/
+
+/*
+ * lib/config.inc.php
+ * lib/functions.php
+ */
+include_once($_SERVER['DOCUMENT_ROOT']."/lib/config.inc.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/lib/functions.php");
+main();
+if(!isset($_GET['start'])){$_GET['start'] = strtotime(date("Y-m")."-01 00:00:00");}
+if(!isset($_GET['end'])){$_GET['end'] = strtotime(date("Y-m-t")." 00:00:00");}
+$startTS = $_GET['start'];
+$endTS = $_GET['end'];
+$events = array();
+$eventQuery = $mySQL['r']->prepare("SELECT `ID`,`title`,`starts`,`ends`,`link`,`allDay` from `news_events` WHERE `starts` BETWEEN FROM_UNIXTIME(?) AND FROM_UNIXTIME(?) AND `enable`=1");
+$eventQuery->bind_param('ii',$startTS,$endTS);
+$eventQuery->execute();
+$eventQuery->store_result();
+if($eventQuery->num_rows!=0){
+	$eventQuery->bind_result($ID,$title,$starts,$ends,$link,$allDay);
+	while($eventQuery->fetch()){
+		$events[$ID]['id'] = intval($ID);
+		$events[$ID]['title'] = $title;
+		$events[$ID]['start'] = $starts;
+		$events[$ID]['end'] = $ends;
+		$events[$ID]['allDay'] = (bool) $allDay;
+		if($link!=""){
+			$events[$ID]['url'] = $link;
+		}else{
+			$events[$ID]['url'] = "/news/events/event?e=".$ID;
+		}
+	}
+}
+$events = array_values($events);
+print json_encode($events);
+?>
