@@ -14,4 +14,4 @@ ini_set('display_errors', 1);
 require 'Defines.php';
 require 'Functions.php';
 require 'Debugger.php';
-//require 'autoload.php';
+require 'Autoloader.php';
