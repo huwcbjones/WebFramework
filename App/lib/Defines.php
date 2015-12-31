@@ -6,6 +6,13 @@
  * @author     Huw Jones <huwcbjones@gmail.com>
  * @date       30/12/2015
  */
+namespace WebApp;
+
+if(array_key_exists('DEBUG', $_SERVER)){
+    define('DEBUG', true, true);
+} else {
+    define('DEBUG', false, true);
+}
 
 define('DATE_Short', 'd/m/Y', true);
 define('DATE_Long', 'l jS F Y', true);
@@ -22,3 +29,7 @@ define('__MODULE__', __LIBDIR__ . DIRECTORY_SEPARATOR . 'modules', true);
 define('__PLUGIN__', __LIBDIR__ . DIRECTORY_SEPARATOR . 'plugins', true);
 define('__TEMP__', __EXECDIR__ . DIRECTORY_SEPARATOR . 'temp', true);
 define('__BACKUP__', __EXECDIR__ . DIRECTORY_SEPARATOR . 'backup', true);
+
+if (DEBUG) {
+    define('__TEST__', dirname(__EXECDIR__) . DIRECTORY_SEPARATOR . 'tests', true);
+}
