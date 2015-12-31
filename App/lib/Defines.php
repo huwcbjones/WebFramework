@@ -25,11 +25,12 @@ define('DATET_BACKUP', 'Ymd_His', true);
 define('__EXECDIR__', dirname(dirname(__file__)));
 define('__LIBDIR__', __EXECDIR__ . DIRECTORY_SEPARATOR . 'lib', true);
 define('__CTRLDIR__', __LIBDIR__ . DIRECTORY_SEPARATOR . 'controllers', true);
+define('__BASEDIR__', __LIBDIR__ . DIRECTORY_SEPARATOR . 'base', true);
 define('__MODULE__', __LIBDIR__ . DIRECTORY_SEPARATOR . 'modules', true);
 define('__PLUGIN__', __LIBDIR__ . DIRECTORY_SEPARATOR . 'plugins', true);
 define('__TEMP__', __EXECDIR__ . DIRECTORY_SEPARATOR . 'temp', true);
 define('__BACKUP__', __EXECDIR__ . DIRECTORY_SEPARATOR . 'backup', true);
 
 if (DEBUG) {
-    define('__TEST__', dirname(__EXECDIR__) . DIRECTORY_SEPARATOR . 'tests', true);
+define('__TESTDIR__', dirname(__EXECDIR__) . DIRECTORY_SEPARATOR . 'tests', true);
 }
