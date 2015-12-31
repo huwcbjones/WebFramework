@@ -13,17 +13,21 @@ class Debugger
     private static $debugLog = '';
 
     /**
-     * @param $message Message to log
+     * @param $message string message to log
+     * @param $class string class name
      * @param int $shift Shift back through backtrace
      * @param bool|false $printToCli Print message to CLI or not
      */
-    public static function log($message, $shift = 0, $printToCli = false)
+    public static function log($message, $class, $shift = 0, $printToCli = false)
     {
         if(!DEBUG){
             return;
         }
         if (!is_string($message)) {
             trigger_error(getArgumentErrorMessage(__FUNCTION__, 'string', gettype($message), __CLASS__), E_USER_ERROR);
+        }
+        if (!is_string($class)) {
+            trigger_error(getArgumentErrorMessage(__FUNCTION__, 'string', gettype($class), __CLASS__), E_USER_ERROR);
         }
         if(!is_integer($shift)){
             trigger_error(getArgumentErrorMessage(__FUNCTION__, 'integer', gettype($shift), __CLASS__), E_USER_ERROR);
@@ -37,6 +41,7 @@ class Debugger
             $bt = debug_backtrace(false);
         }
 
+        $message = $class . ': ' . $message;
         $space = '';
         $spaces = 80 - strlen($message);
         for ($s = 1; $s <= $spaces; $s++) {
@@ -96,7 +101,7 @@ class Debugger
         if (substr($path, 0, 1) == DIRECTORY_SEPARATOR) {
             $path = substr($path, 1);
         }
-        $path = str_replace(__TEST__, '_TESTS_', $path);
+        $path = str_replace(__TESTDIR__, '_TESTS_', $path);
         $path = str_replace('lib' . DIRECTORY_SEPARATOR . 'modules', '_MODULE_', $path);
         $path = str_replace('lib' . DIRECTORY_SEPARATOR . 'plugins', '_PLUGIN_', $path);
         $path = str_replace('lib', '_LIB_', $path);
