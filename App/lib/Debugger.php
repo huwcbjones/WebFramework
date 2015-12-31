@@ -6,18 +6,30 @@
 
 namespace WebApp;
 
-
 class Debugger
 {
 
-    private static $backtrace;
     private static $log = array();
     private static $debugLog = '';
 
-    public static function log($text, $shift = 0, $printToCli = false)
+    /**
+     * @param $message Message to log
+     * @param int $shift Shift back through backtrace
+     * @param bool|false $printToCli Print message to CLI or not
+     */
+    public static function log($message, $shift = 0, $printToCli = false)
     {
-        if(!is_string($text)) {
-            trigger_error(getArgumentErrorMessage(__FUNCTION__, 'string', gettype($text), __CLASS__), E_USER_ERROR);
+        if(!DEBUG){
+            return;
+        }
+        if (!is_string($message)) {
+            trigger_error(getArgumentErrorMessage(__FUNCTION__, 'string', gettype($message), __CLASS__), E_USER_ERROR);
+        }
+        if(!is_integer($shift)){
+            trigger_error(getArgumentErrorMessage(__FUNCTION__, 'integer', gettype($shift), __CLASS__), E_USER_ERROR);
+        }
+        if(!is_bool($printToCli)){
+            trigger_error(getArgumentErrorMessage(__FUNCTION__, 'bool', gettype($printToCli), __CLASS__), E_USER_ERROR);
         }
         if (version_compare(PHP_VERSION, '5.3.6', '>=')) {
             $bt = debug_backtrace(~DEBUG_BACKTRACE_PROVIDE_OBJECT & DEBUG_BACKTRACE_IGNORE_ARGS);
@@ -26,13 +38,13 @@ class Debugger
         }
 
         $space = '';
-        $spaces = 80 - strlen($text);
+        $spaces = 80 - strlen($message);
         for ($s = 1; $s <= $spaces; $s++) {
             $space .= ' ';
         }
 
         $caller = array_shift($bt);
-        if (strpos($caller['file'], 'autoload.php') === false) {
+        if (strpos($caller['file'], 'autoload.php') === true) {
             $caller = array_shift($bt);
         }
 
@@ -61,8 +73,9 @@ class Debugger
             $file = $file[count($file) - 1];
         }
 
-        $msg = $text . $space . '(' . $file . ', ' . $caller['line'] . ')';
-        self::$log[microtime(false) . '|' . md5(microtime())] = $msg;
+        $msg = $message . $space . '(' . $file . ', ' . $caller['line'] . ')';
+        $time = microtime(false);
+        self::$log[$time . '|' . md5($time)] = $msg;
 
         if (is_CLI() && $printToCli) {
             echo ' # ' . $msg . PHP_EOL;
@@ -72,17 +85,20 @@ class Debugger
     /**
      * Strips defined paths a replaces them with the entities
      *
-     * @param string|\WebApp\string $path Path to strip from
+     * @param string $path Path to strip from
      * @return string Stripped path
      */
-    private static function stripPaths(string $path)
+    private static function stripPaths($path)
     {
+        if (!is_string($path)) {
+            trigger_error(getArgumentErrorMessage(__FUNCTION__, 'string', gettype($path), __CLASS__));
+        }
         if (substr($path, 0, 1) == DIRECTORY_SEPARATOR) {
             $path = substr($path, 1);
         }
+        $path = str_replace(__TEST__, '_TESTS_', $path);
         $path = str_replace('lib' . DIRECTORY_SEPARATOR . 'modules', '_MODULE_', $path);
-        $path = str_replace('lib' . DIRECTORY_SEPARATOR .
-            'plugins', '_PLUGIN_', $path);
+        $path = str_replace('lib' . DIRECTORY_SEPARATOR . 'plugins', '_PLUGIN_', $path);
         $path = str_replace('lib', '_LIB_', $path);
         $path = str_replace('class.', DIRECTORY_SEPARATOR, $path);
         return $path;
@@ -91,10 +107,11 @@ class Debugger
     public static function compile()
     {
         $debug = array();
-        foreach (self::$log as $time => $event) {
-            $date_array = explode(" ", $time);
+        foreach (self::$log as $timeString => $event) {
+            $date_array = explode(" ", explode('|', $timeString)[0]);
             $date = date("Y-m-d H:i:s", $date_array[1]);
-            $debug[] = "  " . $date . '' . substr(number_format(substr($date_array[0], 2), 5), 1) . " - " . $event . PHP_EOL;
+            $time = substr(number_format($date_array[0], 5), 1);
+            $debug[] = "  " . $date . $time . " - " . $event . PHP_EOL;
         }
 
         // Set the array pointer to the end of the array
@@ -117,13 +134,14 @@ class Debugger
         self::$debugLog = implode('', $debug);
     }
 
-    public function get_debugLog()
+    public static function get_debugLog()
     {
+        if (!DEBUG){
+            return '';
+        }
         if (self::$debugLog != '') {
             self::compile();
         }
         return self::$debugLog;
     }
-
-
 }
