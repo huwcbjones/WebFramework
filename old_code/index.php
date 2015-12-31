@@ -1,18 +1,11 @@
 <?php
 
 /**
- * Index file for BWSC Website
+ * Index file for the Web App
  *
- *
- * @category   WebApp.Index
- * @package    index.php
  * @author     Huw Jones <huwcbjones@gmail.com>
- * @copyright  2014 Huw Jones
+ * @date       30/12/2015
  */
-
-/*
-* lib/webapp.php
-*/
 
 require 'lib/_init.php';
 $webapp = new WebApp;

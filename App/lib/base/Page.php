@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ *
  * User: hjone
  * Date: 20/12/2015
  * Time: 00:05
@@ -12,6 +12,7 @@ abstract class Page
 {
     private $content;
     private $statusCode;
+    private $title;
 
     /**
      * @return String - Page content
@@ -29,5 +30,12 @@ abstract class Page
         return $this->statusCode;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
 }
